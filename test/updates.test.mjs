@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {planUpdate,planUpdateCheck} from '../src/updates.mjs';
+const baseline={repositoryUrl:'https://github.com/example/rescue',commit:'a'.repeat(40),files:{'bot/role.md':'Original source'}};
+const candidate=files=>({repositoryUrl:baseline.repositoryUrl,commit:'b'.repeat(40),files});
+test('update checks default off and propose weekly cadence with separate consent',()=>{const p=planUpdateCheck();assert.equal(p.state,'off-until-user-consents');assert.equal(p.proposedCadence,'weekly');assert.equal(p.nativeScheduleCreated,false);assert.equal(p.requiresSeparateApplyApproval,true);});
+test('update check preferences are customizable without creating a schedule',()=>{const p=planUpdateCheck({cadence:'daily',time:'09:30',timezone:'America/Los_Angeles'});assert.equal(p.proposedTime,'09:30');assert.equal(p.accountWrites,false);});
+test('upstream update produces exact diffs and requires apply permission',()=>{const p=planUpdate(baseline,baseline.files,candidate({'bot/role.md':'Updated source'}));assert.equal(p.status,'update-available');assert.equal(p.requiresUserPermissionToApply,true);assert.equal(p.checkConsentGrantsApplyPermission,false);assert.deepEqual(p.changes[0].diff,['-Original source','+Updated source']);assert.equal(p.accountWrites,false);});
+test('unchanged source is quiet even at a newer repository commit',()=>{const p=planUpdate(baseline,baseline.files,candidate(baseline.files));assert.equal(p.status,'unchanged');assert.equal(p.notify,false);});
+test('local and upstream modifications are held as a conflict',()=>{const p=planUpdate(baseline,{'bot/role.md':'User override'},candidate({'bot/role.md':'New upstream'}));assert.equal(p.status,'conflict-needs-user');assert.equal(p.changes[0].action,'conflict-needs-user');assert.equal(p.accountWrites,false);});
+test('local override is preserved when upstream is unchanged',()=>{const p=planUpdate(baseline,{'bot/role.md':'User override'},candidate(baseline.files));assert.equal(p.changes[0].action,'preserve-local');assert.equal(p.notify,false);});
+test('upstream removal is manual review and never deletion',()=>{const p=planUpdate(baseline,baseline.files,candidate({}));assert.equal(p.changes[0].action,'manual-source-removal-review');assert.equal(p.status,'conflict-needs-user');assert.equal(p.accountWrites,false);});
+test('different canonical source, mutable commits and unsafe paths are rejected',()=>{assert.throws(()=>planUpdate(baseline,baseline.files,{...candidate({}),repositoryUrl:'https://github.com/lookalike/rescue'}));assert.throws(()=>planUpdate({...baseline,commit:'main'},baseline.files,candidate({})));assert.throws(()=>planUpdate(baseline,baseline.files,candidate({'../private.md':'x'})));});
+test('the same claimed commit cannot silently change source',()=>{assert.throws(()=>planUpdate(baseline,baseline.files,{...candidate({'bot/role.md':'Different'}),commit:baseline.commit}),/inconsistent/);});
