@@ -1,0 +1,23 @@
+{
+  "repositoryUrl": "https://github.com/brefledev/template-rescue",
+  "publicationStatus": "published",
+  "publishedCommit": null,
+  "version": "0.1.0",
+  "instructionsPath": "bot/INSTRUCTIONS.md",
+  "manifestPath": "bot/manifest.json",
+  "routinePolicyPath": "bot/ROUTINE_POLICY.md",
+  "updateChecks": {
+    "defaultState": "off",
+    "suggestedCadence": "weekly",
+    "customizable": [
+      "cadence",
+      "day",
+      "time",
+      "timezone"
+    ],
+    "checkConsentIsApplyConsent": false,
+    "manualFallback": true
+  },
+  "repositoryCreationVerified": true,
+  "sourceFilesPublished": true
+}
