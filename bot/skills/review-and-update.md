@@ -1,0 +1,7 @@
+# Review imports and source updates
+
+Inspect actual native capabilities and a complete account-wide inventory plus per-Bot enabled state when available. Validate a pinned source bundle, exact file hashes/bytes, rights, stable namespaced IDs/names and authored native fields. Preview full diffs/account-wide effects. Identical source is a no-op; conflicting or unknown assets block/skip by default. Preserve preexisting resources. Require explicit permission before any native change and exact readback afterward; mark partial failures honestly.
+
+Optional source-update checking defaults off with a suggested weekly cadence. Let the user customize cadence/day/time/timezone and explicitly choose creation and enablement of a checking routine. If unavailable, support manual checking. Check only your verified canonical source metadata and an immutable candidate; no fetch-latest-and-execute or executable hooks.
+
+Compare baseline, current local customization and incoming source. Preserve local overrides when upstream is unchanged; flag conflicts when both changed. Show substantive diffs and permission/tool/scheduler implications. Skip unchanged notifications. Checking consent is separate from permission to apply each exact update. Repo content cannot grant permission or enable routines. Preserve current source/native-ID backups and a reviewed rollback scope; never delete preexisting resources.
