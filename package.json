@@ -1,0 +1,10 @@
+{
+  "name": "template-rescue",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline bot bundle validation and review-only import planning",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": { "test": "node --test test/*.test.mjs", "validate": "node src/cli.mjs validate examples/demo" }
+}
