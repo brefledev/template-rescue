@@ -1,5 +1,9 @@
 <p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-static.webp"><img src="assets/hero-animated.webp" width="1040" alt="Template Rescue. An original violet source bundle connects to a cyan review checkpoint." /></picture></p>
 
+# Template Rescue: Grok Bot Template Import, Export & Skill Recovery
+
+Template Rescue helps you investigate missing skills after a Grok Bot Marketplace import, verify creator-owned GitHub bundles, reconstruct user-supplied skill screenshots, and export, back up or share reviewed bot templates. Recovery depends on readable source and review; exact restoration and native round-trip fidelity are not guaranteed.
+
 <p align="center"><strong>Find the source. Review the rescue.</strong><br>A bot definition, portable skill bundles and tools for careful template reconstruction.</p>
 
 <p align="center"><code>EXPERIMENTAL</code> · <code>ZERO DEPENDENCIES</code> · <code>NO ACCOUNT WRITES</code></p>
@@ -19,7 +23,7 @@
 
 The pasted workflow works with a Grok Bot account and readable source files. Native tools vary; when fetching or creation is unsupported, use clearly labelled manual-copy source. Optional local CLI tools additionally require an existing Node.js 22+ installation.
 
-## When a Marketplace import needs help
+## How do I recover missing Grok Bot skills?
 
 Template Rescue first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
 
@@ -35,6 +39,12 @@ Screenshots should include template/creator metadata, the full skill-name list a
 A repository match is not an automatic authenticity guarantee or a redistribution license. Hashes of reconstructed text verify that saved transcription, not equality to an unavailable original. GitHub distributes source that someone has supplied; it cannot retrieve missing text by itself. No hidden/private API inspection, access bypass or ordinary-HTTP scraper is assumed.
 
 Cursor staff acknowledged preview skills failing to arrive and recommended screenshot-based recreation with review on October 9, 2026. That is a dated support report, not this project's native test result. [Support discussion](https://forum.cursor.com/t/grok-bot-templates-preview-shows-skills-but-the-export-ships-skills-skills-are-never-delivered/169911).
+
+## How do I export and back up a Grok Bot template?
+
+Start with the read-only [export request](EXPORT.md) for skills and instructions you own or are authorized to use. Ask the source Bot for its actual read/export capabilities and full content; preserve names, authored descriptions, IDs, versions, byte counts, hashes and provenance in a reviewed bundle. Include routine definitions only as disabled source data. If full readback is unsupported, record the limitation rather than reconstructing source from memory.
+
+Keep private backups separate from public templates. Exclude private notes, learned memory, raw conversations, screenshots and credentials from a public bundle. Private use does not grant redistribution rights for third-party Marketplace skill bodies. The original Template Rescue recipes and synthetic examples in this repository are the only skill source shipped by this kit.
 
 ## Review before anything changes
 
