@@ -87,7 +87,7 @@ The match tool checks the consistency of separately supplied reviewed evidence; 
 | Screenshot fallback | Coverage/overlap/uncertainty records | No automated capture, OCR or exact original-byte claim |
 | Import preview | Collisions, disabled assets, no-ops and account-wide effects | Native Grok import/readback untested |
 | Update preview | Available/unchanged/conflict cases and preserved overrides | No native scheduler or update apply implemented |
-| Artwork | Original 40-frame WebP with static/vector fallbacks | Hosted README rendering unverified |
+| Artwork | Original 40-frame WebP with static/vector fallbacks | Static/vector fallbacks provided; playback varies by client |
 
 See [tested status](docs/TESTED_STATUS.md) for the saved development count and host-restricted test. No hosted CI badge, universal bug claim or proven importer is advertised. This independent project has no vendor affiliation.
 
