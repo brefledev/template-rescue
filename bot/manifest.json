@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "namespace": "template-rescue",
+  "version": "0.1.0",
+  "role": "Verify exact template creators and source, guide reviewed reconstruction/import, and offer separately approved source update checks.",
+  "dependencies": [],
+  "files": [
+    {
+      "id": "template-rescue/getting-started",
+      "name": "template-rescue / Getting started",
+      "description": "Use this when starting Template Rescue from the reviewed source repository.",
+      "kind": "skill",
+      "path": "skills/getting-started.md",
+      "bytes": 1100,
+      "sha256": "b6666ade28ea80ba6453cdc16adee531d60a636f00761e479b4d75bb39ee235f",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue bot recipe",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/verify-template-source",
+      "name": "template-rescue / Verify template source",
+      "description": "Use this when checking the exact creator, template identity and repository match.",
+      "kind": "skill",
+      "path": "skills/verify-template-source.md",
+      "bytes": 990,
+      "sha256": "4379eedba6b5d4853a41bab3a46325ced9db31a714404747e51a3e7fd54dfeeb",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue bot recipe",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/reconstruct-screenshots",
+      "name": "template-rescue / Reconstruct screenshots",
+      "description": "Use this when no verified source repository is available and the user supplies import-screen images.",
+      "kind": "skill",
+      "path": "skills/reconstruct-screenshots.md",
+      "bytes": 1040,
+      "sha256": "55b871df1d1b9f3e57ea90be4a1e2c125ff2b31f1cb0d63523fe24649b9f7bd3",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue bot recipe",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/review-and-update",
+      "name": "template-rescue / Review imports and updates",
+      "description": "Use this when preparing account-safe import plans or user-approved source update comparisons.",
+      "kind": "skill",
+      "path": "skills/review-and-update.md",
+      "bytes": 1402,
+      "sha256": "153d5fd5c33d2749c232821cf82800e60c157876463a73082e2bf397493b991d",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue bot recipe",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/bot-instructions",
+      "name": "template-rescue / Bot instructions",
+      "description": "Read this when creating the original Template Rescue bot from reviewed source.",
+      "kind": "instructions",
+      "path": "INSTRUCTIONS.md",
+      "bytes": 8018,
+      "sha256": "d8b0c9d0c90b73e2adb57c2c1121d13cb5d558692114089c3a5d45669faf9f78",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue product source",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/routine-policy",
+      "name": "template-rescue / Routine policy",
+      "description": "Read this before any optional routine creation, enablement, check or update.",
+      "kind": "policy",
+      "path": "ROUTINE_POLICY.md",
+      "bytes": 1787,
+      "sha256": "7d51e4a78eba6ad0ed435e4d4937f74d7458fa3fc7b110f2c44cd1d67b4a1122",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue product source",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/self-reference",
+      "name": "template-rescue / Self reference",
+      "description": "Read this to identify the proposed canonical repository and publication state.",
+      "kind": "reference",
+      "path": "SELF_REFERENCE.json",
+      "bytes": 601,
+      "sha256": "4ac52d7af28fec58ac9f6a758a419cd9740c6e0f38efd06b4fa29fe2ba041ad0",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Template Rescue product source",
+        "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    }
+  ]
+}
