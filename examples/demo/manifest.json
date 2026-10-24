@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "namespace": "template-rescue-demo",
+  "version": "0.1.0",
+  "files": [
+    {
+      "id": "template-rescue-demo/review-note",
+      "name": "template-rescue-demo / Review note",
+      "kind": "skill",
+      "path": "skills/review-note.md",
+      "bytes": 323,
+      "sha256": "0f7369ff92fa9a057e1f6f5a542a032c49dc6ec109c537eee9bbe98b1a7e97b1",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original synthetic example for this project",
+        "evidence": "Authored as demonstration text; no recovered or third-party skill content"
+      },
+      "description": "Use this when an explicitly supplied public note needs a factual review."
+    },
+    {
+      "id": "template-rescue-demo/source-check",
+      "name": "template-rescue-demo / Source check",
+      "kind": "skill",
+      "path": "skills/source-check.md",
+      "bytes": 327,
+      "sha256": "c487ef46b35a5a433b2ab8719c161fb2df3891fec9c4f1b1a38b0c7059d209b1",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original synthetic example for this project",
+        "evidence": "Authored as demonstration text; no recovered or third-party skill content"
+      },
+      "description": "Use this when a supplied public claim needs comparison with readable source."
+    },
+    {
+      "id": "template-rescue-demo/review-check",
+      "name": "template-rescue-demo / Review check",
+      "kind": "routine",
+      "path": "routines/review-check.json",
+      "bytes": 257,
+      "sha256": "46926522078a357e5fe0fa80accfa2ba015979fde5b181e45c8175e59bd4a15b",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original synthetic example for this project",
+        "evidence": "Authored as demonstration text; no recovered or third-party skill content"
+      },
+      "description": "Use this when an explicitly supplied demo note needs a disabled review recipe."
+    }
+  ],
+  "role": "Inspect explicitly supplied public demonstration notes and source claims without account mutations.",
+  "dependencies": []
+}
