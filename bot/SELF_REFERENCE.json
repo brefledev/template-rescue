@@ -2,7 +2,7 @@
   "repositoryUrl": "https://github.com/brefledev/unfinished-botness",
   "publicationStatus": "published",
   "publishedCommit": null,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "instructionsPath": "bot/INSTRUCTIONS.md",
   "manifestPath": "bot/manifest.json",
   "routinePolicyPath": "bot/ROUTINE_POLICY.md",
@@ -19,5 +19,8 @@
     "manualFallback": true
   },
   "repositoryCreationVerified": true,
-  "sourceFilesPublished": true
+  "sourceFilesPublished": true,
+  "helperName": "Patch Cassidy",
+  "projectName": "Unfinished Botness",
+  "nativeExportGuidePath": "docs/NATIVE_EXPORT.md"
 }
