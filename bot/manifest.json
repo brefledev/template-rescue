@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.1.0",
-  "role": "Verify exact template creators and source, guide reviewed reconstruction/import, and offer separately approved source update checks.",
+  "version": "0.1.1",
+  "role": "Guide creator-owned full readable Bot source export, verify creators, review reconstruction/import and separately approved updates.",
   "dependencies": [],
   "files": [
     {
       "id": "template-rescue/getting-started",
       "name": "template-rescue / Getting started",
-      "description": "Use this when starting Template Rescue from the reviewed source repository.",
+      "description": "Use this when starting Unfinished Botness from the reviewed source repository.",
       "kind": "skill",
       "path": "skills/getting-started.md",
-      "bytes": 1100,
-      "sha256": "b6666ade28ea80ba6453cdc16adee531d60a636f00761e479b4d75bb39ee235f",
+      "bytes": 1551,
+      "sha256": "9944356137893ef7a6716c8485a1e5f31fd1783ceb72fde244f99d513dd54f6a",
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue bot recipe",
+        "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
@@ -31,7 +31,7 @@
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue bot recipe",
+        "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
@@ -46,7 +46,7 @@
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue bot recipe",
+        "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
@@ -61,22 +61,22 @@
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue bot recipe",
+        "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
     {
       "id": "template-rescue/bot-instructions",
       "name": "template-rescue / Bot instructions",
-      "description": "Read this when creating the original Template Rescue bot from reviewed source.",
+      "description": "Read this when creating the original Unfinished Botness bot from reviewed source.",
       "kind": "instructions",
       "path": "INSTRUCTIONS.md",
-      "bytes": 8018,
-      "sha256": "d8b0c9d0c90b73e2adb57c2c1121d13cb5d558692114089c3a5d45669faf9f78",
+      "bytes": 10154,
+      "sha256": "00b5b40376e1d2e975b044e7fcf761fbde7ff5410c306010eb243555b1570312",
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue product source",
+        "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
@@ -91,7 +91,7 @@
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue product source",
+        "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
       }
     },
@@ -101,13 +101,28 @@
       "description": "Read this to identify the proposed canonical repository and publication state.",
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
-      "bytes": 601,
-      "sha256": "4ac52d7af28fec58ac9f6a758a419cd9740c6e0f38efd06b4fa29fe2ba041ad0",
+      "bytes": 604,
+      "sha256": "10a0dee520703ed0bfccd1e23411d117005ec2dfdfa6588cfa89852a6f30741b",
       "rights": {
         "status": "original",
         "license": "MIT",
-        "source": "Original Template Rescue product source",
+        "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
+      }
+    },
+    {
+      "id": "template-rescue/export-creator-bot",
+      "name": "template-rescue / Export a creator Bot",
+      "description": "Use this when a creator wants to export readable authored profile, skills, configuration and recipient startup source.",
+      "kind": "skill",
+      "path": "skills/export-creator-bot.md",
+      "bytes": 3251,
+      "sha256": "0e3a2210355a1a3fca9e5cadca58326e16c8b026ca2b969884e3f7f9f9cea4af",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original creator export recipe",
+        "evidence": "Authored for this kit; no third-party bodies"
       }
     }
   ]
