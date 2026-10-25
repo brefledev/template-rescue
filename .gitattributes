@@ -1,0 +1,6 @@
+# Bundle checksums cover exact UTF-8 bytes on every checkout.
+* text=auto eol=lf
+*.png binary
+*.gif binary
+*.webp binary
+*.ttf binary

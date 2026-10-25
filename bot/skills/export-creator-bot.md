@@ -1,4 +1,4 @@
-# Export a creator's Bot
+# Patch Cassidy / Export a creator Bot
 
 Use this when a creator wants other people to import the authored profile and skills behind a Grok Bot share URL.
 

@@ -1,4 +1,4 @@
-# Verify template source
+# Patch Cassidy / Verify template source
 
 Identify the exact Marketplace template link/ID, original creator profile and version/date context. Discover public repository candidates only with tools actually available. Require an independently reviewed creator-controlled crosslink or original-creator confirmation that points to the exact repository and exact template/version. Record evidence URLs, what was read and verified, and remaining uncertainty.
 

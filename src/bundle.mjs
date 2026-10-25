@@ -6,12 +6,13 @@ export const LIMITS = Object.freeze({json: 65536, file: 65536, total: 1048576, f
 export const sha256 = data => crypto.createHash('sha256').update(data).digest('hex');
 const fail = message => { throw new Error(message); };
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
-function keys(value, required, label) {
-  if (!object(value) || Object.keys(value).sort().join('|') !== [...required].sort().join('|')) fail(`Invalid ${label} fields`);
+function keys(value, required, label, optional = []) {
+  if (!object(value) || required.some(key => !Object.hasOwn(value, key)) || Object.keys(value).some(key => !required.includes(key) && !optional.includes(key))) fail(`Invalid ${label} fields`);
 }
 const text = (value, max = 512) => typeof value === 'string' && value.length > 0 && value.length <= max;
 const slug = value => typeof value === 'string' && /^[a-z][a-z0-9-]{0,63}$/.test(value);
 const foldName = value => value.normalize('NFKC').trim().toLowerCase();
+const displayName = value => text(value, 160) && foldName(value).length > 0 && !/[\p{Cc}\p{Zl}\p{Zp}]/u.test(value);
 const version = value => typeof value === 'string' && /^\d+\.\d+\.\d+$/.test(value);
 const stable = value => Array.isArray(value) ? value.map(stable) : object(value) ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 function read(file, limit) {
@@ -57,16 +58,22 @@ export function validateBundle(root) {
   const ids = new Set(), names = new Set(), paths = new Set(['manifest.json']), payloads = [];
   let total = 0, entries = 0;
   for (const file of manifest.files) {
-    keys(file, ['id', 'name', 'description', 'kind', 'path', 'bytes', 'sha256', 'rights'], 'file');
+    keys(file, ['id', 'name', 'description', 'kind', 'path', 'bytes', 'sha256', 'rights'], 'file', ['legacyNames']);
     safePath(file.path);
-    if (!text(file.id, 130) || !file.id.startsWith(`${manifest.namespace}/`) || !slug(file.id.slice(manifest.namespace.length + 1)) || !text(file.name, 160) || !file.name.startsWith(`${manifest.namespace} / `)) fail('Invalid namespaced ID/name');
+    if (!text(file.id, 130) || !file.id.startsWith(`${manifest.namespace}/`) || !slug(file.id.slice(manifest.namespace.length + 1))) fail('Invalid namespaced ID');
+    if (!displayName(file.name)) fail('Invalid display name');
+    if (Object.hasOwn(file, 'legacyNames') && (!Array.isArray(file.legacyNames) || file.legacyNames.length > 16 || !file.legacyNames.every(displayName))) fail('Invalid legacy names');
     if (!text(file.description, 512) || /[\r\n]/.test(file.description)) fail('Authored one-line description required');
     if (!['skill', 'routine', 'instructions', 'policy', 'reference'].includes(file.kind) || !file.path.endsWith(['routine','reference'].includes(file.kind) ? '.json' : '.md')) fail('Unsupported payload kind');
     if (!Number.isSafeInteger(file.bytes) || file.bytes < 1 || file.bytes > LIMITS.file || !/^[a-f0-9]{64}$/.test(file.sha256)) fail('Invalid size or hash');
     keys(file.rights, ['status', 'license', 'source', 'evidence'], 'rights');
     if (!['original', 'authorized'].includes(file.rights.status) || !['license', 'source', 'evidence'].every(k => text(file.rights[k], 1024))) fail('Redistribution rights required');
-    if (ids.has(file.id) || names.has(foldName(file.name)) || [...paths].some(p => p.toLowerCase() === file.path.toLowerCase())) fail('Duplicate ID, name or path');
-    ids.add(file.id); names.add(foldName(file.name)); paths.add(file.path);
+    if (ids.has(file.id) || [...paths].some(p => p.toLowerCase() === file.path.toLowerCase())) fail('Duplicate ID, name or path');
+    for (const name of [file.name, ...(file.legacyNames ?? [])]) {
+      if (names.has(foldName(name))) fail('Duplicate display or legacy name');
+      names.add(foldName(name));
+    }
+    ids.add(file.id); paths.add(file.path);
   }
   function walk(dir, prefix = '', depth = 0) {
     if (depth > 16) fail('Directory depth limit');
@@ -139,7 +146,8 @@ export function preview(bundle, inventory, revision) {
   const incompleteExport = completenessReports.some(f => f.report.status !== 'complete');
   const operations = bundle.payloads.map(file => {
     const native = ['skill','routine'].includes(file.kind);
-    const matches = native ? inventory.items.filter(i => i.id === file.id || foldName(i.name) === foldName(file.name)) : [];
+    const recognizedNames = new Set([file.name, ...(file.legacyNames ?? [])].map(foldName));
+    const matches = native ? inventory.items.filter(i => i.id === file.id || recognizedNames.has(foldName(i.name))).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0) : [];
     const existing = matches.length === 1 ? matches[0] : null;
     const same = existing && existing.id === file.id && existing.name === file.name && existing.kind === file.kind && existing.content !== null && existing.content === file.content;
     const state = !native ? 'source-only' : matches.length === 0 ? 'absent' : same ? existing.enabled ? 'present-enabled' : 'present-disabled' : 'conflict-or-unknown';
@@ -147,7 +155,7 @@ export function preview(bundle, inventory, revision) {
     // A simple full-line replacement diff preserves exact bytes separately in sourceContent.
     const before = existing?.content;
     const diff = same ? [] : [...(typeof before === 'string' ? before.split('\n').map(line => '-' + line) : []), ...file.content.split('\n').map(line => '+' + line)];
-    return {id: file.id, name: file.name, description: file.description, kind: file.kind, path: file.path, sha256: file.sha256, state, action, currentEnabled: existing?.enabled ?? null, proposedEnabled: action === 'no-op' ? existing.enabled : action === 'propose-create-only' && file.kind === 'routine' ? false : null, routineStateWarning: file.kind === 'routine' && existing?.enabled ? 'Existing routine is active. No pause, activation or run is proposed.' : null, accountWideEffect: action === 'propose-create-only' ? 'Would add account-visible source; native scope requires verification' : 'No change', sourceContent: file.content, contentTrust: 'untrusted-data', diff};
+    return {id: file.id, name: file.name, description: file.description, kind: file.kind, path: file.path, sha256: file.sha256, state, action, existingMatches: matches.map(({id, name, kind}) => ({id, name, kind})), currentEnabled: existing?.enabled ?? null, proposedEnabled: action === 'no-op' ? existing.enabled : action === 'propose-create-only' && file.kind === 'routine' ? false : null, routineStateWarning: file.kind === 'routine' && existing?.enabled ? 'Existing routine is active. No pause, activation or run is proposed.' : null, accountWideEffect: action === 'propose-create-only' ? 'Would add account-visible source; native scope requires verification' : 'No change', sourceContent: file.content, contentTrust: 'untrusted-data', diff};
   });
   const canonicalInventory = {...inventory, items: [...inventory.items].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0)};
   const plan = {schemaVersion: 1, bundleVersion: bundle.manifest.version, role: bundle.manifest.role, dependencies: bundle.manifest.dependencies, dependencyStatus: bundle.manifest.dependencies.length ? 'manual-review-required' : 'none', revisionClaim: revision, revisionAuthenticated: false, inventoryCapturedAt: inventory.capturedAt, inventoryDigest: sha256(JSON.stringify(stable(canonicalInventory))), inventoryCompleteness: 'declared-not-independently-verified', accountWrites: false, networkRequests: 0, requiresSeparateApproval: true, nativeFormatVerified: false, blocked: bundle.manifest.dependencies.length > 0 || operations.some(o => o.action === 'blocked-collision'), operations, restore: 'No account changes made. Future transactions must journal their own created IDs and preserve preexisting assets.'};

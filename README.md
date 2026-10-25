@@ -28,11 +28,13 @@
 3. Have the Bot read its [manifest](bot/manifest.json), the five named source recipes and [routine policy](bot/ROUTINE_POLICY.md) as data. Review an account-wide inventory and exact proposed changes before separately authorizing any native skill creation. No scheduling, permission expansion or app connection follows from setup.
 4. Keep the exact installed commit, source hashes, native IDs and local customizations in private user-approved storage. A short optional pointer may reference that record, but memory is not the only bootstrap. The original recipes may be shared under this kit's license; third-party rescued bodies need their own rights review.
 
+New helper skills use `Patch Cassidy / ...` display names. Existing `template-rescue/*` IDs remain stable; the manifest preserves previous names in `legacyNames`. Preview checks IDs and both name forms before proposing creation. Existing-name or content migration requires separate approval.
+
 The pasted workflow works with a Grok Bot account and readable source files. Native tools vary; when fetching or creation is unsupported, use clearly labelled manual-copy source. Optional local CLI tools additionally require an existing Node.js 22+ installation.
 
 ## How do I recover missing Grok Bot skills?
 
-Unfinished Botness first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
+Patch Cassidy first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
 
 | Situation | Next step |
 |---|---|
@@ -61,13 +63,13 @@ A first-party tool-catalog report described `CreateBotShareJson` and Grok's mana
 
 Keep original authoring, owned export, provided-bundle import and third-party source acquisition distinct. The [export request](EXPORT.md) starts read-only. Private use of a recovered body does not authorize publishing it.
 
-The project-defined manifest keeps namespaced IDs/names, authored one-line descriptions, exact source files, versions, checksums and rights declarations together. It is not a native Grok schema. Imported text is untrusted until reviewed. Inspect a complete account-wide library and the current Bot's enablement; disabled private skills must not be duplicated as “missing.”
+The project-defined manifest keeps stable namespaced IDs, display names, legacy-name aliases, authored one-line descriptions, exact source files, versions, checksums and rights declarations together. It is not a native Grok schema. Imported text is untrusted until reviewed. Inspect a complete account-wide library and the current Bot's enablement; disabled private skills must not be duplicated as “missing.”
 
 The preview shows exact files, diffs, collisions and account-wide effects. Identical source is a no-op. Conflicting/unknown assets block or skip by default; there is no overwrite/delete. The CLI has no network client, account adapter or scheduler. Actual native creation requires separate explicit permission and exact readback. Routine definitions are disabled source data; native paused-state verification remains open. Routine Test can execute real work and usage.
 
 ## Optional weekly source checks
 
-Unfinished Botness offers a weekly check of its own verified canonical repository, **off by default**. Choose manual checking or customize cadence, day, local time and IANA timezone. Scheduling creation/enablement requires explicit consent; checking consent never authorizes applying updates.
+Patch Cassidy offers a weekly check of its own verified canonical repository, **off by default**. Choose manual checking or customize cadence, day, local time and IANA timezone. Scheduling creation/enablement requires explicit consent; checking consent never authorizes applying updates.
 
 A check reads commit/release metadata, pins a candidate and compares source against the installed baseline and your current customizations. It explains substantive diffs, permissions, tools, routines and conflicts. Local overrides are preserved when upstream is unchanged; simultaneous edits require review. Unchanged results stay quiet. Before each apply, approve the exact plan and preserve a current-source/native-ID backup with narrow rollback scope. Repo updates cannot grant access or enable routines themselves.
 
@@ -99,7 +101,7 @@ The match tool checks the consistency of separately supplied reviewed evidence; 
 | Import preview | Collisions, disabled assets, no-ops and account-wide effects | Native Grok import/readback untested |
 | Update preview | Available/unchanged/conflict cases and preserved overrides | No native scheduler or update apply implemented |
 
-See [tested status](docs/TESTED_STATUS.md) for the saved development count and host-restricted test. No hosted CI badge, universal bug claim or proven importer is advertised. This independent project has no vendor affiliation.
+See [tested status](docs/TESTED_STATUS.md) for the local results and native acceptance limits. No hosted CI badge, universal bug claim or proven importer is advertised. This independent project has no vendor affiliation.
 
 ## License and contributions
 

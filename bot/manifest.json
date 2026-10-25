@@ -1,88 +1,103 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "role": "Patch Cassidy helps review native/readable-source creator exports, recipient imports, reconstruction and separately approved updates.",
   "dependencies": [],
   "files": [
     {
       "id": "template-rescue/getting-started",
-      "name": "template-rescue / Getting started",
+      "name": "Patch Cassidy / Getting started",
       "description": "Use this when starting Patch Cassidy from the reviewed Unfinished Botness source repository.",
       "kind": "skill",
       "path": "skills/getting-started.md",
-      "bytes": 2206,
-      "sha256": "d3b9ad977ab5365ff84cffa2e4d9f28b50adda06b26261bbcbb57122662883b3",
+      "bytes": 2450,
+      "sha256": "e8f2298d3730325362e25312a1a3264c3cd1c6d7795fcdcd9c239047a255affa",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Getting started"
+      ]
     },
     {
       "id": "template-rescue/verify-template-source",
-      "name": "template-rescue / Verify template source",
+      "name": "Patch Cassidy / Verify template source",
       "description": "Use this when checking the exact creator, template identity and repository match.",
       "kind": "skill",
       "path": "skills/verify-template-source.md",
-      "bytes": 990,
-      "sha256": "4379eedba6b5d4853a41bab3a46325ced9db31a714404747e51a3e7fd54dfeeb",
+      "bytes": 1006,
+      "sha256": "ad354817e8f342f1a22d85c3f185fe6627b2d732c6d3ecfc5357024cf9a86703",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Verify template source"
+      ]
     },
     {
       "id": "template-rescue/reconstruct-screenshots",
-      "name": "template-rescue / Reconstruct screenshots",
+      "name": "Patch Cassidy / Reconstruct screenshots",
       "description": "Use this when no verified source repository is available and the user supplies import-screen images.",
       "kind": "skill",
       "path": "skills/reconstruct-screenshots.md",
-      "bytes": 1040,
-      "sha256": "55b871df1d1b9f3e57ea90be4a1e2c125ff2b31f1cb0d63523fe24649b9f7bd3",
+      "bytes": 1051,
+      "sha256": "e5cb90f0fcf849da3a102c7cdf6f3ce77a31a9c6017aaf561953c8a3f0d4c16e",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Reconstruct screenshots"
+      ]
     },
     {
       "id": "template-rescue/review-and-update",
-      "name": "template-rescue / Review imports and updates",
+      "name": "Patch Cassidy / Review imports and updates",
       "description": "Use this when preparing account-safe import plans or user-approved source update comparisons.",
       "kind": "skill",
       "path": "skills/review-and-update.md",
-      "bytes": 1402,
-      "sha256": "153d5fd5c33d2749c232821cf82800e60c157876463a73082e2bf397493b991d",
+      "bytes": 1702,
+      "sha256": "df8ca32446f80830dd199aa063cf8a2fe7cdf527d964b26ed51f2a4a125b0baf",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness bot recipe",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Review imports and updates"
+      ]
     },
     {
       "id": "template-rescue/bot-instructions",
-      "name": "template-rescue / Bot instructions",
+      "name": "Patch Cassidy / Bot instructions",
       "description": "Read this when creating the original Unfinished Botness bot from reviewed source.",
       "kind": "instructions",
       "path": "INSTRUCTIONS.md",
-      "bytes": 11848,
-      "sha256": "59172b27bdfd552ca9ef4b7946d76e15e66da63c6f93c4bcb26e83419a97d8f8",
+      "bytes": 12358,
+      "sha256": "90f6e1c815f12ec066a5e696fbb689b5ccf19aa14f00af0cea0c248d493cd7fc",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Bot instructions"
+      ]
     },
     {
       "id": "template-rescue/routine-policy",
-      "name": "template-rescue / Routine policy",
+      "name": "Patch Cassidy / Routine policy",
       "description": "Read this before any optional routine creation, enablement, check or update.",
       "kind": "policy",
       "path": "ROUTINE_POLICY.md",
@@ -93,37 +108,46 @@
         "license": "MIT",
         "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Routine policy"
+      ]
     },
     {
       "id": "template-rescue/self-reference",
-      "name": "template-rescue / Self reference",
+      "name": "Patch Cassidy / Self reference",
       "description": "Read this to identify the proposed canonical repository and publication state.",
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
       "bytes": 728,
-      "sha256": "9399980951262471f23e740290626b96f5d9e1a0a79d07ab7ec19f0a61ed79f2",
+      "sha256": "015712762d552847dff1a068f3597ecdaf077d7c6f653d88ccb430e29dd35cb5",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original Unfinished Botness product source",
         "evidence": "Authored for this original kit; no third-party template bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Self reference"
+      ]
     },
     {
       "id": "template-rescue/export-creator-bot",
-      "name": "template-rescue / Export a creator Bot",
+      "name": "Patch Cassidy / Export a creator Bot",
       "description": "Use this when a creator wants to export readable authored profile, skills, configuration and recipient startup source.",
       "kind": "skill",
       "path": "skills/export-creator-bot.md",
-      "bytes": 3976,
-      "sha256": "e897e11056c2d0a1ddef2bbe12ec25c845b7c4938310e53bf31dfcb2a881e9bb",
+      "bytes": 3990,
+      "sha256": "2a3a90fb5aed80b97af391e2e0c05036bdace47e6a7f4ded9292523c6548c659",
       "rights": {
         "status": "original",
         "license": "MIT",
         "source": "Original creator export recipe",
         "evidence": "Authored for this kit; no third-party bodies"
-      }
+      },
+      "legacyNames": [
+        "template-rescue / Export a creator Bot"
+      ]
     }
   ]
 }

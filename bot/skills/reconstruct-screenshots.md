@@ -1,4 +1,4 @@
-# Reconstruct from screenshots
+# Patch Cassidy / Reconstruct screenshots
 
 Request the template/creator metadata, exact visible name list, and each skill's title, description and complete body. Ask for sequential images with enough repeated visible lines to review overlaps and with the beginning and end shown. Work from user-supplied images; no desktop automation is required.
 

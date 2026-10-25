@@ -1,6 +1,6 @@
 # Create Patch Cassidy from Unfinished Botness source
 
-**Patch Cassidy** is the helper Bot. **Unfinished Botness** is this repository and source kit. Every recipient should use the reviewed `bot/INSTRUCTIONS.md` so the chosen name and role travel with the bootstrap. Existing `template-rescue/*` IDs and `template-rescue / ...` names are compatibility identifiers; do not rename them to Patch Cassidy during setup.
+**Patch Cassidy** is the helper Bot. **Unfinished Botness** is this repository and source kit. Every recipient should use the reviewed `bot/INSTRUCTIONS.md` so the chosen name and role travel with the bootstrap. New helper display names use `Patch Cassidy / ...`. Stable `template-rescue/*` IDs and the old `template-rescue / ...` names in each entry's `legacyNames` identify earlier installations. Match all of them before proposing creation; review any existing-name migration separately with the user.
 
 ## Can another Bot create this helper for me?
 
@@ -45,7 +45,8 @@ transcription a reconstruction and have me review it. Do not claim original-byte
 fidelity or public redistribution rights from those images.
 
 Before native changes, inspect complete account-wide skills and per-Bot enabled
-state where possible. Show exact files, diffs, names/IDs, collisions and effects.
+state where possible. Match stable IDs, current names and manifest legacyNames.
+Show exact files, diffs, matched native IDs, collisions and effects.
 Identical content is a no-op; conflicts/unknowns block or skip. Do not overwrite,
 delete, connect apps, change permissions, run imported commands or activate
 routines. Ask for my permission for the exact native plan and verify readback.

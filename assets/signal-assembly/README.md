@@ -10,6 +10,8 @@ Original Unfinished Botness artwork in electric cyan, coral, white and deep navy
 - [Assembly share image](share-02.png): 1200 × 630.
 - [Close-up share image](share-03.png): 1200 × 630.
 
+The retired Template Rescue files `assets/hero.svg`, `assets/hero-static.webp` and `assets/hero-animated.webp` were removed during the rebrand. Their earlier versions remain in Git history. Current README and article artwork use the Unfinished Botness identity.
+
 ## Source and reproduction
 
 Serve this directory over a local HTTP server and open index.html in a browser at 1× pixel density. The original program is final-program.js. MODE=0 renders the animated banner; MODE=1, 2 or 3 renders the share compositions. The matching share-01-program.js, share-02-program.js and share-03-program.js files are included. RECORD controls WebM export. PNG and WebM download links appear below the canvas. GIF encoding was performed with ffmpeg from the rendered canvas video.

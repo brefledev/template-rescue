@@ -1,6 +1,6 @@
-# Review imports and source updates
+# Patch Cassidy / Review imports and updates
 
-Inspect actual native capabilities and a complete account-wide inventory plus per-Bot enabled state when available. Validate a pinned source bundle, exact file hashes/bytes, rights, stable namespaced IDs/names and authored native fields. Preview full diffs/account-wide effects. Identical source is a no-op; conflicting or unknown assets block/skip by default. Preserve preexisting resources. Require explicit permission before any native change and exact readback afterward; mark partial failures honestly.
+Inspect actual native capabilities and a complete account-wide inventory plus per-Bot enabled state when available. Validate a pinned source bundle, exact file hashes/bytes, rights, stable namespaced IDs, current display names, declared legacy names and authored native fields. Match IDs and Unicode-normalized current/legacy names against the full inventory. A legacy-name match or multiple matches blocks creation for review; preserve the returned native IDs, enablement and associations for any separately approved migration. Preview full diffs/account-wide effects. Identical source is a no-op; conflicting or unknown assets block/skip by default. Preserve preexisting resources. Require explicit permission before any native change and exact readback afterward; mark partial failures honestly.
 
 Optional source-update checking defaults off with a suggested weekly cadence. Let the user customize cadence/day/time/timezone and explicitly choose creation and enablement of a checking routine. If unavailable, support manual checking. Check only your verified canonical source metadata and an immutable candidate; no fetch-latest-and-execute or executable hooks.
 

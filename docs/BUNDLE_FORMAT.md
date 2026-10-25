@@ -1,6 +1,6 @@
 # Bundle format v1
 
-`manifest.json` names an exact set of UTF-8 payloads. The sample demonstrates the current schema; unknown keys are rejected. The manifest is capped at 64 KiB; no more than 64 payloads or 1 MiB aggregate payload bytes are allowed. Each payload is at most 64 KiB. Paths use `/`, stay inside the bundle, and contain no symlinks, traversal or executable file types. IDs and display names are unique within a bundle.
+`manifest.json` names an exact set of UTF-8 payloads. Repository text uses LF line endings, enforced by `.gitattributes`, so Windows checkouts preserve payload hashes. External bundles are checked against their own exact declared bytes. The sample demonstrates the current schema; unknown keys are rejected. The manifest is capped at 64 KiB; no more than 64 payloads or 1 MiB aggregate payload bytes are allowed. Each payload is at most 64 KiB. Paths use `/`, stay inside the bundle, and contain no symlinks, traversal or executable file types. IDs are unique within a bundle. Current and legacy display names share one Unicode-normalized uniqueness check. Older bundles that omit `legacyNames` remain valid.
 
 This is a project-defined portability format, not the native Grok configuration schema. It records role and dependency requirements as review data; it cannot install a role or dependency. Nonempty dependency requirements block the plan for manual review; no dependency is downloaded or inferred as satisfied.
 
@@ -12,6 +12,8 @@ This is a project-defined portability format, not the native Grok configuration 
 | `role` | Human-readable bot purpose, at most 2048 characters |
 | `dependencies` | Up to 16 `{ id, version, reason }` records; empty in the demo |
 | `files` | Exact list of `{ id, name, description, kind, path, bytes, sha256, rights }` |
+| File `name` | Human-readable display name, independent of the ID namespace; 1–160 characters, single line, nonblank |
+| File `legacyNames` | Optional array of up to 16 former display names, with the same name bounds; used for collision detection |
 | File `description` | Explicitly authored one-line description, at most 512 characters |
 | `kind` | `skill`, `instructions` or `policy` for Markdown; `routine` or `reference` for JSON |
 | `rights` | `{ status: "original" or "authorized", license, source, evidence }`; human rights review still required |
@@ -39,7 +41,7 @@ The inventory JSON is:
 }
 ```
 
-`content` may be `null` when retrieval is unsupported. Unknown existing content blocks a create proposal. The enabled flag must describe the current Bot view alongside an account-wide inventory; other Bots' enablement remains outside the snapshot. A complete empty `items` array is a declaration of absence, not proof. ID and case-insensitive name matching both matter. Existing source with equal bytes is unchanged even when disabled; it is never recreated or enabled by this tool.
+`content` may be `null` when retrieval is unsupported. Unknown existing content blocks a create proposal. The enabled flag must describe the current Bot view alongside an account-wide inventory; other Bots' enablement remains outside the snapshot. A complete empty `items` array is a declaration of absence, not proof. ID and Unicode-normalized current/legacy name matching all matter. Existing source with equal bytes is unchanged even when disabled; it is never recreated or enabled by this tool.
 
 Inventory timestamps use canonical UTC ISO form (`...Z`, optionally with three millisecond digits); invalid calendar dates are rejected. Display-name comparisons conservatively normalize Unicode with NFKC, trim surrounding whitespace and ignore case. Native IDs remain opaque and case-sensitive. Reordering equivalent inventory records or JSON object keys does not change the plan digest.
 
@@ -55,9 +57,11 @@ A reference may declare `exportCompleteness: {status: "complete" | "partial" | "
 
 The routine payload still contains only ID, prompt and `enabled:false`; readable authored timing/trigger/timezone is preserved separately in the review-only configuration. A future native operation must map it using actual tools, explicit permission and paused-state readback. No timing is invented or activated by validation. Required connector names/purposes require separate recipient review/authorization, with no credentials or automatic connection. See EXPORT.md and RECIPIENT_BOOTSTRAP.md for creator-to-recipient handoff.
 
-Existing `template-rescue/*` bundle IDs and `template-rescue / ...` native-facing names are compatibility identifiers. Keep them stable across a product/repository rename so recipients do not create duplicate account-wide skills. The new export recipe adds a new stable ID; it does not rename or rewrite any existing native resource. A future migration must explicitly map old IDs and normalized names to returned native IDs, preview collisions/associations, obtain permission and verify content before changing anything. Cosmetic product naming is not native migration consent.
+The helper retains its `template-rescue/*` stable IDs and `template-rescue` namespace. Its current display names use `Patch Cassidy / ...`; each entry declares its former `template-rescue / ...` name in `legacyNames`. For example, `template-rescue/getting-started` now displays as `Patch Cassidy / Getting started` and recognizes `template-rescue / Getting started`. The demo keeps its original namespace and display names as an older-format compatibility fixture.
 
-The helper's name/persona is **Patch Cassidy** and the source project is **Unfinished Botness**. That name is included in INSTRUCTIONS.md, GETTING_STARTED.md and SELF_REFERENCE.json for all recipients. Keep existing skill IDs AND native-facing names unchanged when adopting the persona. A single account's earlier install/readback report is secondary evidence, not proof of universal acceptance or the final source revision. Native export uses current platform capabilities where available; see NATIVE_EXPORT.md for reported transformations and open recipient-delivery tests.
+Preview matches an inventory item by stable ID, current name or any legacy name. `existingMatches` reports every matching native ID/name/kind. A current exact ID/name/kind/content match remains a no-op; a legacy-name match, different native ID, unknown content or multiple matches blocks creation for explicit review. Current and legacy names are normalized with NFKC, surrounding whitespace trimming and case folding. Aliases overlapping another entry's current or legacy name are rejected, including normalized duplicates within one entry. Any approved migration must map to the existing returned native ID and preserve associations. These offline planners perform zero account writes.
+
+The helper's name/persona is **Patch Cassidy** and the source project is **Unfinished Botness**. That name is included in INSTRUCTIONS.md, GETTING_STARTED.md and SELF_REFERENCE.json for all recipients. New installations use the manifest's Patch Cassidy display names. Existing installations are recognized through stable IDs and legacy names; changing their native names requires a separately approved migration. A single account's earlier install/readback report is secondary evidence, not proof of universal acceptance or the final source revision. Native export uses current platform capabilities where available; see NATIVE_EXPORT.md for reported transformations and open recipient-delivery tests.
 
 An optional companion reference uses `{included, creatorApproved, sourceUrl, note}`. It defaults to omitted; inclusion without creator approval is rejected. The HTTPS source must have no credentials, query or fragment. This is visible review-only provenance, never a manifest dependency or native install operation. The target Bot remains independently usable. Publication still requires source review and replacing any unresolved owner-selected name.
 
