@@ -2,7 +2,7 @@
 
 <picture>
   <source media="(prefers-reduced-motion: reduce)" srcset="assets/signal-assembly/banner-static.png">
-  <img src="assets/signal-assembly/banner-animated.gif" alt="Unfinished Botness — a cyan and coral glyph bot separates and reassembles on deep navy" width="1600" height="600">
+  <img src="assets/signal-assembly/banner-animated.gif" alt="Unfinished Botness — a cyan and coral glyph bot separates and reassembles on deep navy" width="1600">
 </picture>
 
 [Static banner](assets/signal-assembly/banner-static.png) · [Share images and artwork source](assets/signal-assembly/README.md)
