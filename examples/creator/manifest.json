@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "namespace": "example-creator",
+  "version": "0.1.0",
+  "role": "Fictional creator profile export demonstrating explicit partial source, not a live Bot.",
+  "dependencies": [],
+  "files": [
+    {
+      "id": "example-creator/profile",
+      "name": "example-creator / Authored profile",
+      "description": "Read this to review the fictional authored profile instructions.",
+      "kind": "instructions",
+      "path": "PROFILE.md",
+      "bytes": 520,
+      "sha256": "61c971c507fcc1644be028bf1faafb18b76f93807d708208b4c9c28e42359268",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original fictional creator export example",
+        "evidence": "Synthetic demonstration; no private or third-party source"
+      }
+    },
+    {
+      "id": "example-creator/reading-note",
+      "name": "example-creator / Reading note",
+      "description": "Use this when summarizing a user-supplied public passage.",
+      "kind": "skill",
+      "path": "skills/reading-note.md",
+      "bytes": 305,
+      "sha256": "2d4ecc2c973d9b91cc9d816eded16e5317bb19880d036e4e062462000cfe7a00",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original fictional creator export example",
+        "evidence": "Synthetic demonstration; no private or third-party source"
+      }
+    },
+    {
+      "id": "example-creator/review-note",
+      "name": "example-creator / Review note",
+      "description": "Read this to review the disabled fictional note-review routine.",
+      "kind": "routine",
+      "path": "routines/review-note.json",
+      "bytes": 183,
+      "sha256": "823b47c6d9ae35f04e41712955a374333aee0abf64024f3a84eb7246fe27dd54",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original fictional creator export example",
+        "evidence": "Synthetic demonstration; no private or third-party source"
+      }
+    },
+    {
+      "id": "example-creator/configuration",
+      "name": "example-creator / Configuration and omissions",
+      "description": "Read this to review exact fictional profile fields, associations, timing and explicit omissions.",
+      "kind": "reference",
+      "path": "configuration.json",
+      "bytes": 1863,
+      "sha256": "17afd733bb80815284685e57147a48643f48c9be2d16ea3ebaeb40686ebb9c46",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original fictional creator export example",
+        "evidence": "Synthetic demonstration; no private or third-party source"
+      }
+    },
+    {
+      "id": "example-creator/recipient-bootstrap",
+      "name": "example-creator / Recipient bootstrap",
+      "description": "Read this to review target-Bot startup and creator-source verification.",
+      "kind": "instructions",
+      "path": "RECIPIENT_BOOTSTRAP.md",
+      "bytes": 1396,
+      "sha256": "85787a76c61d3541736c3f14020a2e072a0d4f5a89d7a2077c5cd6b8084b882b",
+      "rights": {
+        "status": "original",
+        "license": "CC0-1.0",
+        "source": "Original fictional creator export example",
+        "evidence": "Synthetic demonstration; no private or third-party source"
+      }
+    }
+  ]
+}
