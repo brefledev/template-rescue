@@ -97,7 +97,21 @@ export function validateBundle(root) {
       keys(routine, ['id', 'prompt', 'enabled'], 'routine');
       if (routine.id !== file.id || !text(routine.prompt, LIMITS.file) || routine.enabled !== false) fail('Routine must match ID and remain disabled');
     }
-    if (file.kind === 'reference') JSON.parse(content);
+    if (file.kind === 'reference') {
+      const reference = JSON.parse(content);
+      if (object(reference) && Object.hasOwn(reference, 'exportCompleteness')) {
+        const report = reference.exportCompleteness;
+        keys(report, ['status', 'omissions'], 'export completeness');
+        if (!['complete', 'partial', 'unknown'].includes(report.status) || !Array.isArray(report.omissions) || report.omissions.length > 64 || !report.omissions.every(x => text(x, 1024)) || report.status === 'complete' && report.omissions.length) fail('Invalid export completeness declaration');
+      }
+      if (object(reference) && Object.hasOwn(reference, 'optionalCompanion')) {
+        const companion = reference.optionalCompanion;
+        keys(companion, ['included', 'creatorApproved', 'sourceUrl', 'note'], 'optional companion');
+        if (typeof companion.included !== 'boolean' || typeof companion.creatorApproved !== 'boolean' || companion.included && !companion.creatorApproved || !text(companion.note, 1024)) fail('Optional companion inclusion requires creator approval');
+        const url = new URL(companion.sourceUrl);
+        if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash) fail('Invalid companion source URL');
+      }
+    }
     payloads.push({...file, content});
   }
   return {manifest, payloads, totalBytes: total};
@@ -121,6 +135,8 @@ export function validateInventory(inventory) {
 export function preview(bundle, inventory, revision) {
   validateInventory(inventory);
   if (!/^[a-f0-9]{40}$/.test(revision) || /^0+$/.test(revision)) fail('Independently reviewed immutable commit claim required');
+  const completenessReports = bundle.payloads.filter(f => f.kind === 'reference').map(f => ({path:f.path, report:JSON.parse(f.content)?.exportCompleteness})).filter(f => f.report);
+  const incompleteExport = completenessReports.some(f => f.report.status !== 'complete');
   const operations = bundle.payloads.map(file => {
     const native = ['skill','routine'].includes(file.kind);
     const matches = native ? inventory.items.filter(i => i.id === file.id || foldName(i.name) === foldName(file.name)) : [];
@@ -135,5 +151,10 @@ export function preview(bundle, inventory, revision) {
   });
   const canonicalInventory = {...inventory, items: [...inventory.items].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0)};
   const plan = {schemaVersion: 1, bundleVersion: bundle.manifest.version, role: bundle.manifest.role, dependencies: bundle.manifest.dependencies, dependencyStatus: bundle.manifest.dependencies.length ? 'manual-review-required' : 'none', revisionClaim: revision, revisionAuthenticated: false, inventoryCapturedAt: inventory.capturedAt, inventoryDigest: sha256(JSON.stringify(stable(canonicalInventory))), inventoryCompleteness: 'declared-not-independently-verified', accountWrites: false, networkRequests: 0, requiresSeparateApproval: true, nativeFormatVerified: false, blocked: bundle.manifest.dependencies.length > 0 || operations.some(o => o.action === 'blocked-collision'), operations, restore: 'No account changes made. Future transactions must journal their own created IDs and preserve preexisting assets.'};
+  plan.exportCompleteness = {declaredReports:completenessReports, independentlyVerified:false, completeProfileClaimAllowed:false};
+  if (incompleteExport) {
+    plan.blocked = true;
+    plan.blockReason = 'Export source is partial or unknown. Review omissions; do not claim complete profile restoration.';
+  }
   return {...plan, planDigest: sha256(JSON.stringify(stable(plan)))};
 }
