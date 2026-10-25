@@ -32,9 +32,23 @@ New helper skills use `Patch Cassidy / ...` display names. Existing `template-re
 
 The pasted workflow works with a Grok Bot account and readable source files. Native tools vary; when fetching or creation is unsupported, use clearly labelled manual-copy source. Optional local CLI tools additionally require an existing Node.js 22+ installation.
 
+The safe handoff flow below connects creator export with recipient review, including the screenshot fallback when no verified source is available.
+
+<p align="center">
+  <a href="assets/article/grok-bot-safe-handoff-flowchart.png">
+    <img src="assets/article/grok-bot-safe-handoff-flowchart.png" alt="Safe handoff: the creator inventories source, approves the export and shares the bundle and bootstrap. The recipient verifies creator and pinned source or reviews an ordered screenshot reconstruction. Both paths require explicit approval before recreating the bot and reading back the result." width="720">
+  </a>
+</p>
+
+*Conceptual workflow; native integration and full round trips remain untested. [Open the full-resolution flowchart](assets/article/grok-bot-safe-handoff-flowchart.png) · [Editable SVG](assets/article/grok-bot-safe-handoff-flowchart.svg).*
+
 ## How do I recover missing Grok Bot skills?
 
 Patch Cassidy first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
+
+![A glyph bot has a missing lower-right fragment; a coral skill tile approaches the gap. Labels identify your bot and the missing skill.](assets/article/recover-missing-grok-bot-skills.png)
+
+*Bring the missing skills: source recovery and reconstruction require the review described below.*
 
 | Situation | Next step |
 |---|---|
@@ -53,7 +67,15 @@ Cursor staff acknowledged preview skills failing to arrive and recommended scree
 
 Guide the creator through selected-Bot inventory first; no native IDs are required in advance. The [creator-export skill](bot/skills/export-creator-bot.md) and [export workflow](EXPORT.md) preserve full readable authored profile instructions, associated skill names/descriptions/bodies and enablement, disabled routine source plus review-only timing/settings, connector names and approved configuration. Report every unreadable/omitted field. Private learned memory, chats, native-ID mappings and unrelated account skills stay outside public source.
 
+![A bot and separate skill symbols sit beside a complete bot inside a protective contour, illustrating a portable bundle.](assets/article/export-complete-grok-bot-bundle.png)
+
+*Take the whole bot: inventory the readable authored source and record omissions before sharing.*
+
 Use the [fictional creator-bundle layout](examples/creator/manifest.json), then prepare [recipient bootstrap text](RECIPIENT_BOOTSTRAP.md) for the creator's actual shared Bot and pinned creator-owned source. This is separate from the helper's own Getting started launcher. Associate source with the original template through creator-controlled evidence; keep a full independent bootstrap beside the share URL, even if an optional setup/memory field fails to transfer. A share URL alone is not a complete export. Review publication rights, exact files and destination before saving, then read back bytes/hashes. Native export and full-profile restoration remain untested.
+
+![Two complete glyph bots face transferable skill pieces. Labels identify the creator, shared skills and recipient.](assets/article/share-and-rebuild-grok-bot.png)
+
+*Share it. Rebuild it: the recipient reviews verified, pinned source and the bootstrap before approving changes.*
 
 ## Use native Grok export where available
 
@@ -107,4 +129,4 @@ See [tested status](docs/TESTED_STATUS.md) for the local results and native acce
 
 Code, bot instructions, original recipes and documentation: [MIT](LICENSE). The separate synthetic demo declares CC0-1.0. No marketplace body is included. Keep private context, screenshots, chats, credentials and unrelated files out of public contributions. Submit synthetic reproducers with scoped evidence. [Security guidance](SECURITY.md).
 
-Visual assets: [Signal Assembly source and attribution](assets/signal-assembly/README.md). The bundled play.core renderer is Apache-2.0; Syne font software and its renamed subset are SIL OFL-1.1.
+Visual assets: [Article artwork index: cover, workflow illustrations, orbit and bloom](assets/article/README.md) · [Signal Assembly: banner, social share variants, source and attribution](assets/signal-assembly/README.md). The bundled play.core renderer is Apache-2.0; Syne font software and its renamed subset are SIL OFL-1.1.
