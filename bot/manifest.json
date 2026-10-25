@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.1.1",
-  "role": "Guide creator-owned full readable Bot source export, verify creators, review reconstruction/import and separately approved updates.",
+  "version": "0.1.2",
+  "role": "Patch Cassidy helps review native/readable-source creator exports, recipient imports, reconstruction and separately approved updates.",
   "dependencies": [],
   "files": [
     {
       "id": "template-rescue/getting-started",
       "name": "template-rescue / Getting started",
-      "description": "Use this when starting Unfinished Botness from the reviewed source repository.",
+      "description": "Use this when starting Patch Cassidy from the reviewed Unfinished Botness source repository.",
       "kind": "skill",
       "path": "skills/getting-started.md",
-      "bytes": 1551,
-      "sha256": "9944356137893ef7a6716c8485a1e5f31fd1783ceb72fde244f99d513dd54f6a",
+      "bytes": 2206,
+      "sha256": "d3b9ad977ab5365ff84cffa2e4d9f28b50adda06b26261bbcbb57122662883b3",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -71,8 +71,8 @@
       "description": "Read this when creating the original Unfinished Botness bot from reviewed source.",
       "kind": "instructions",
       "path": "INSTRUCTIONS.md",
-      "bytes": 10154,
-      "sha256": "00b5b40376e1d2e975b044e7fcf761fbde7ff5410c306010eb243555b1570312",
+      "bytes": 11848,
+      "sha256": "59172b27bdfd552ca9ef4b7946d76e15e66da63c6f93c4bcb26e83419a97d8f8",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -101,8 +101,8 @@
       "description": "Read this to identify the proposed canonical repository and publication state.",
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
-      "bytes": 604,
-      "sha256": "10a0dee520703ed0bfccd1e23411d117005ec2dfdfa6588cfa89852a6f30741b",
+      "bytes": 728,
+      "sha256": "9399980951262471f23e740290626b96f5d9e1a0a79d07ab7ec19f0a61ed79f2",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -116,8 +116,8 @@
       "description": "Use this when a creator wants to export readable authored profile, skills, configuration and recipient startup source.",
       "kind": "skill",
       "path": "skills/export-creator-bot.md",
-      "bytes": 3251,
-      "sha256": "0e3a2210355a1a3fca9e5cadca58326e16c8b026ca2b969884e3f7f9f9cea4af",
+      "bytes": 3976,
+      "sha256": "e897e11056c2d0a1ddef2bbe12ec25c845b7c4938310e53bf31dfcb2a881e9bb",
       "rights": {
         "status": "original",
         "license": "MIT",
