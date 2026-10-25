@@ -18,7 +18,7 @@ This is a project-defined portability format, not the native Grok configuration 
 
 Routine JSON is exactly `{ "id": "namespace/item", "prompt": "text", "enabled": false }`. It has no schedule, action hook or activation field. Skill text is framework source data; a native Grok format is not assumed.
 
-Instructions, policies and JSON references are source-only review documents, not native skill/routine creation proposals. The original `bot/` bundle checksums all seven declared files: four recipes plus core instructions, routine policy and self-reference metadata. The manifest itself is the external integrity reference and must come from a reviewed immutable commit; its hashes do not authenticate it.
+Instructions, policies and JSON references are source-only review documents, not native skill/routine creation proposals. The original `bot/` bundle checksums all eight declared files: five recipes plus core instructions, routine policy and self-reference metadata. The manifest itself is the external integrity reference and must come from a reviewed immutable commit; its hashes do not authenticate it.
 
 The inventory JSON is:
 
@@ -47,7 +47,19 @@ An existing active routine with identical source is an active no-op: the plan ex
 
 Preview accepts a separately supplied 40-character Git commit claim, returns the exact files and line diffs, and hashes the plan for stable local replay comparison. Plan digests do not implement remote transactions. Every result has `accountWrites: false` and `requiresSeparateApproval: true`.
 
-## Reported native mapping and open gates
+## Creator profile export source
+
+`examples/creator/` demonstrates a selected Bot's authored profile, full skill source, disabled routine definition, target-Bot recipient bootstrap and review-only configuration reference. It is fictional and explicitly partial. `configuration.json` preserves readable profile fields, original skill names/descriptions, per-Bot associations, routine schedule/trigger/timezone/settings, connector names and omissions. It is not a native API payload. Private native IDs and account mappings stay outside the public bundle. Full source must be obtained through actual read capabilities or supplied readable files, not model recall.
+
+A reference may declare `exportCompleteness: {status: "complete" | "partial" | "unknown", omissions: ["..."]}`. Status is creator-declared, not independently verified. A complete declaration with nonempty omissions is rejected. A partial/unknown declaration blocks the import plan's complete-profile path. All profile/configuration/bootstrap reference or instruction payloads remain source-only review, never automated native creation. Explicitly approved manual partial work must list omitted fields and cannot be called a complete restoration.
+
+The routine payload still contains only ID, prompt and `enabled:false`; readable authored timing/trigger/timezone is preserved separately in the review-only configuration. A future native operation must map it using actual tools, explicit permission and paused-state readback. No timing is invented or activated by validation. Required connector names/purposes require separate recipient review/authorization, with no credentials or automatic connection. See EXPORT.md and RECIPIENT_BOOTSTRAP.md for creator-to-recipient handoff.
+
+Existing `template-rescue/*` bundle IDs and `template-rescue / ...` native-facing names are compatibility identifiers. Keep them stable across a product/repository rename so recipients do not create duplicate account-wide skills. The new export recipe adds a new stable ID; it does not rename or rewrite any existing native resource. A future migration must explicitly map old IDs and normalized names to returned native IDs, preview collisions/associations, obtain permission and verify content before changing anything. Cosmetic product naming is not native migration consent.
+
+An optional companion reference uses `{included, creatorApproved, sourceUrl, note}`. It defaults to omitted; inclusion without creator approval is rejected. The HTTPS source must have no credentials, query or fragment. This is visible review-only provenance, never a manifest dependency or native install operation. The target Bot remains independently usable. Publication still requires source review and replacing any unresolved owner-selected name.
+
+## Native tools and open gates
 
 A read-only capability report from one Grok Bot account on October 24, 2026 described `UpdateSkill` with action `write`, a display `name`, one-line `description` and Markdown `body`; omitting `id` creates and supplying it rewrites. This project has not invoked or independently verified that tool. Its fields are not a universal API contract. Our bundle ID is separate from any returned native ID, and no existing ID is passed for an automatic rewrite.
 
