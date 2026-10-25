@@ -1,10 +1,15 @@
 {
-  "name": "template-rescue",
-  "version": "0.1.0",
+  "name": "unfinished-botness",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
-  "description": "Offline bot bundle validation and review-only import planning",
+  "description": "Grok Bot import, creator export and skill sharing through reviewed readable source",
   "license": "MIT",
-  "engines": { "node": ">=22" },
-  "scripts": { "test": "node --test test/*.test.mjs", "validate": "node src/cli.mjs validate examples/demo" }
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "validate": "node src/cli.mjs validate examples/demo"
+  }
 }
