@@ -1,0 +1,42 @@
+{
+  "exampleOnly": true,
+  "creatorProfileUrl": "https://example.com/fictional-creator",
+  "templateUrl": "https://example.com/fictional-reading-bot",
+  "exportedVersion": "0.1.0",
+  "sourceEvidence": "Fictional layout example; these URLs do not verify an actual creator or template.",
+  "exportCompleteness": {
+    "status": "partial",
+    "omissions": ["Profile avatar source is unreadable in this synthetic scenario; full-profile restoration is not established."]
+  },
+  "profileFields": {
+    "name": "Fictional reading-notes Bot",
+    "description": "Draft a short source-grounded reading note.",
+    "avatar": null
+  },
+  "skillAssociations": [{
+    "publicId": "example-creator/reading-note",
+    "originalName": "Reading note",
+    "originalDescription": "Use this when summarizing a user-supplied public passage.",
+    "enabledForSelectedBot": true,
+    "nativeIdLocation": "Separate private mapping; no account-native ID is published here."
+  }],
+  "requiredConnectors": [],
+  "routineReviewOnly": [{
+    "publicId": "example-creator/review-note",
+    "sourceState": "paused",
+    "schedule": "0 9 * * 1",
+    "trigger": null,
+    "timezone": "Etc/UTC",
+    "timing": "exact",
+    "destinationIntent": "disabled; native create must map authored settings and verify stored paused state"
+  }],
+  "shareableConfiguration": {"tone": "concise", "language": "English"},
+  "optionalCompanion": {
+    "included": false,
+    "creatorApproved": false,
+    "sourceUrl": "https://github.com/brefledev/unfinished-botness",
+    "note": "Optional export/import review companion; target Bot remains independently usable. Companion: Unfinished Botness."
+  },
+  "excluded": ["learned memory", "private chats", "credentials", "private native IDs", "unrelated account-wide skills"],
+  "nativeFormat": "Project-defined review-only source. Not a native Grok tool payload."
+}
