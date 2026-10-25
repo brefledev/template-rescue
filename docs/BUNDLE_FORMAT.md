@@ -57,6 +57,8 @@ The routine payload still contains only ID, prompt and `enabled:false`; readable
 
 Existing `template-rescue/*` bundle IDs and `template-rescue / ...` native-facing names are compatibility identifiers. Keep them stable across a product/repository rename so recipients do not create duplicate account-wide skills. The new export recipe adds a new stable ID; it does not rename or rewrite any existing native resource. A future migration must explicitly map old IDs and normalized names to returned native IDs, preview collisions/associations, obtain permission and verify content before changing anything. Cosmetic product naming is not native migration consent.
 
+The helper's name/persona is **Patch Cassidy** and the source project is **Unfinished Botness**. That name is included in INSTRUCTIONS.md, GETTING_STARTED.md and SELF_REFERENCE.json for all recipients. Keep existing skill IDs AND native-facing names unchanged when adopting the persona. A single account's earlier install/readback report is secondary evidence, not proof of universal acceptance or the final source revision. Native export uses current platform capabilities where available; see NATIVE_EXPORT.md for reported transformations and open recipient-delivery tests.
+
 An optional companion reference uses `{included, creatorApproved, sourceUrl, note}`. It defaults to omitted; inclusion without creator approval is rejected. The HTTPS source must have no credentials, query or fragment. This is visible review-only provenance, never a manifest dependency or native install operation. The target Bot remains independently usable. Publication still requires source review and replacing any unresolved owner-selected name.
 
 ## Native tools and open gates
