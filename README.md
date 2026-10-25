@@ -1,31 +1,31 @@
-<p align="center"><picture><source media="(prefers-reduced-motion: reduce)" srcset="assets/hero-static.webp"><img src="assets/hero-animated.webp" width="1040" alt="Template Rescue. An original violet source bundle connects to a cyan review checkpoint." /></picture></p>
+# Unfinished Botness
 
-# Template Rescue: Grok Bot Template Import, Export & Skill Recovery
+## Grok Bot Import, Export & Skill Sharing
 
-Template Rescue helps you investigate missing skills after a Grok Bot Marketplace import, verify creator-owned GitHub bundles, reconstruct user-supplied skill screenshots, and export, back up or share reviewed bot templates. Recovery depends on readable source and review; exact restoration and native round-trip fidelity are not guaranteed.
+Unfinished Botness helps you investigate missing skills after a Grok Bot Marketplace import, verify creator-owned GitHub bundles, reconstruct user-supplied skill screenshots, and export, back up or share reviewed bot templates. Recovery depends on readable source and review; exact restoration and native round-trip fidelity are not guaranteed.
 
-<p align="center"><strong>Find the source. Review the rescue.</strong><br>A bot definition, portable skill bundles and tools for careful template reconstruction.</p>
 
 <p align="center"><code>EXPERIMENTAL</code> · <code>ZERO DEPENDENCIES</code> · <code>NO ACCOUNT WRITES</code></p>
 
-<p align="center"><a href="assets/hero-static.webp">Static artwork</a> · <a href="assets/hero.svg">Vector source</a></p>
 
-**This kit includes Template Rescue itself:** original bot instructions, four authored skill recipes, a routine policy and canonical-source record. It also includes an offline validator and review planners. Native Grok installation, screenshot reconstruction fidelity, paused-state readback and native updates remain untested. Verify the exact canonical repository and all declared files at a reviewed immutable install commit before relying on the bot source.
+**Independent, unofficial project.** No affiliation with Grok, xAI or Cursor.
+
+**This kit includes Unfinished Botness itself:** original bot instructions, five authored skill recipes, a routine policy and canonical-source record. It also includes an offline validator and review planners. Native Grok installation, screenshot reconstruction fidelity, paused-state readback and native updates remain untested. Verify the exact canonical repository and all declared files at a reviewed immutable install commit before relying on the bot source.
 
 [Create the bot](bot/INSTRUCTIONS.md) · [Direct-paste start](GETTING_STARTED.md) · [Product plan](docs/PLAN.md) · [Bundle and workflow formats](docs/BUNDLE_FORMAT.md) · [Evidence](docs/TESTED_STATUS.md)
 
-## Build your Template Rescue Bot
+## Build your Unfinished Botness Bot
 
 1. Start from the exact canonical URL recorded in [SELF_REFERENCE.json](bot/SELF_REFERENCE.json). Verify that repository is actually published, then resolve the reviewed release or installation URL to an immutable commit. Record the full reviewed commit from the installation URL; do not infer or invent a commit ID.
 2. Create a fresh Grok Bot and paste the complete [bot instructions](bot/INSTRUCTIONS.md), or use the independent [Getting started launcher](GETTING_STARTED.md) with that reviewed commit URL. The launcher remains available even if Marketplace import or skill installation fails.
-3. Have the Bot read its [manifest](bot/manifest.json), the four named source recipes and [routine policy](bot/ROUTINE_POLICY.md) as data. Review an account-wide inventory and exact proposed changes before separately authorizing any native skill creation. No scheduling, permission expansion or app connection follows from setup.
+3. Have the Bot read its [manifest](bot/manifest.json), the five named source recipes and [routine policy](bot/ROUTINE_POLICY.md) as data. Review an account-wide inventory and exact proposed changes before separately authorizing any native skill creation. No scheduling, permission expansion or app connection follows from setup.
 4. Keep the exact installed commit, source hashes, native IDs and local customizations in private user-approved storage. A short optional pointer may reference that record, but memory is not the only bootstrap. The original recipes may be shared under this kit's license; third-party rescued bodies need their own rights review.
 
 The pasted workflow works with a Grok Bot account and readable source files. Native tools vary; when fetching or creation is unsupported, use clearly labelled manual-copy source. Optional local CLI tools additionally require an existing Node.js 22+ installation.
 
 ## How do I recover missing Grok Bot skills?
 
-Template Rescue first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
+Unfinished Botness first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
 
 | Situation | Next step |
 |---|---|
@@ -42,9 +42,9 @@ Cursor staff acknowledged preview skills failing to arrive and recommended scree
 
 ## How do I export and back up a Grok Bot template?
 
-Start with the read-only [export request](EXPORT.md) for skills and instructions you own or are authorized to use. Ask the source Bot for its actual read/export capabilities and full content; preserve names, authored descriptions, IDs, versions, byte counts, hashes and provenance in a reviewed bundle. Include routine definitions only as disabled source data. If full readback is unsupported, record the limitation rather than reconstructing source from memory.
+Guide the creator through selected-Bot inventory first; no native IDs are required in advance. The [creator-export skill](bot/skills/export-creator-bot.md) and [export workflow](EXPORT.md) preserve full readable authored profile instructions, associated skill names/descriptions/bodies and enablement, disabled routine source plus review-only timing/settings, connector names and approved configuration. Report every unreadable/omitted field. Private learned memory, chats, native-ID mappings and unrelated account skills stay outside public source.
 
-Keep private backups separate from public templates. Exclude private notes, learned memory, raw conversations, screenshots and credentials from a public bundle. Private use does not grant redistribution rights for third-party Marketplace skill bodies. The original Template Rescue recipes and synthetic examples in this repository are the only skill source shipped by this kit.
+Use the [fictional creator-bundle layout](examples/creator/manifest.json), then prepare [recipient bootstrap text](RECIPIENT_BOOTSTRAP.md) for the creator's actual shared Bot and pinned creator-owned source. This is separate from the helper's own Getting started launcher. Associate source with the original template through creator-controlled evidence; keep a full independent bootstrap beside the share URL, even if an optional setup/memory field fails to transfer. A share URL alone is not a complete export. Review publication rights, exact files and destination before saving, then read back bytes/hashes. Native export and full-profile restoration remain untested.
 
 ## Review before anything changes
 
@@ -56,7 +56,7 @@ The preview shows exact files, diffs, collisions and account-wide effects. Ident
 
 ## Optional weekly source checks
 
-Template Rescue offers a weekly check of its own verified canonical repository, **off by default**. Choose manual checking or customize cadence, day, local time and IANA timezone. Scheduling creation/enablement requires explicit consent; checking consent never authorizes applying updates.
+Unfinished Botness offers a weekly check of its own verified canonical repository, **off by default**. Choose manual checking or customize cadence, day, local time and IANA timezone. Scheduling creation/enablement requires explicit consent; checking consent never authorizes applying updates.
 
 A check reads commit/release metadata, pins a candidate and compares source against the installed baseline and your current customizations. It explains substantive diffs, permissions, tools, routines and conflicts. Local overrides are preserved when upstream is unchanged; simultaneous edits require review. Unchanged results stay quiet. Before each apply, approve the exact plan and preserve a current-source/native-ID backup with narrow rollback scope. Repo updates cannot grant access or enable routines themselves.
 
@@ -87,7 +87,6 @@ The match tool checks the consistency of separately supplied reviewed evidence; 
 | Screenshot fallback | Coverage/overlap/uncertainty records | No automated capture, OCR or exact original-byte claim |
 | Import preview | Collisions, disabled assets, no-ops and account-wide effects | Native Grok import/readback untested |
 | Update preview | Available/unchanged/conflict cases and preserved overrides | No native scheduler or update apply implemented |
-| Artwork | Original 40-frame WebP with static/vector fallbacks | Static/vector fallbacks provided; playback varies by client |
 
 See [tested status](docs/TESTED_STATUS.md) for the saved development count and host-restricted test. No hosted CI badge, universal bug claim or proven importer is advertised. This independent project has no vendor affiliation.
 
