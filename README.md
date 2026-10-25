@@ -9,7 +9,7 @@
 
 ## Grok Bot Import, Export & Skill Sharing
 
-Unfinished Botness helps you investigate missing skills after a Grok Bot Marketplace import, verify creator-owned GitHub bundles, reconstruct user-supplied skill screenshots, and export, back up or share reviewed bot templates. Recovery depends on readable source and review; exact restoration and native round-trip fidelity are not guaranteed.
+**Patch Cassidy** is the helper Bot; **Unfinished Botness** is the source kit. Patch helps creators export readable bot source, review imports, verify creator-owned bundles and reconstruct user-supplied skill screenshots. Use Grok's existing native export when available, with readable-source backup and explicit omissions where useful. Recovery depends on readable source and review; native export-to-recipient delivery and full-profile round-trip fidelity remain untested by this project.
 
 
 <p align="center"><code>EXPERIMENTAL</code> · <code>ZERO DEPENDENCIES</code> · <code>NO ACCOUNT WRITES</code></p>
@@ -17,11 +17,11 @@ Unfinished Botness helps you investigate missing skills after a Grok Bot Marketp
 
 **Independent, unofficial project.** No affiliation with Grok, xAI or Cursor.
 
-**This kit includes Unfinished Botness itself:** original bot instructions, five authored skill recipes, a routine policy and canonical-source record. It also includes an offline validator and review planners. Native Grok installation, screenshot reconstruction fidelity, paused-state readback and native updates remain untested. Verify the exact canonical repository and all declared files at a reviewed immutable install commit before relying on the bot source.
+**Create Patch Cassidy from this kit:** the chosen helper name/persona is in the original bot instructions and independent launcher for every recipient, alongside five authored skill recipes, routine policy and canonical-source record. Offline tools validate source and prepare review plans. One account reported an earlier helper installation with full character readback; that report does not establish this revision's native export/import round trip, screenshot fidelity, paused-state readback or native updates. Verify the repository and declared files at a reviewed immutable install commit.
 
 [Create the bot](bot/INSTRUCTIONS.md) · [Direct-paste start](GETTING_STARTED.md) · [Product plan](docs/PLAN.md) · [Bundle and workflow formats](docs/BUNDLE_FORMAT.md) · [Evidence](docs/TESTED_STATUS.md)
 
-## Build your Unfinished Botness Bot
+## Create Patch Cassidy from this repo
 
 1. Start from the exact canonical URL recorded in [SELF_REFERENCE.json](bot/SELF_REFERENCE.json). Verify that repository is actually published, then resolve the reviewed release or installation URL to an immutable commit. Record the full reviewed commit from the installation URL; do not infer or invent a commit ID.
 2. Create a fresh Grok Bot and paste the complete [bot instructions](bot/INSTRUCTIONS.md), or use the independent [Getting started launcher](GETTING_STARTED.md) with that reviewed commit URL. The launcher remains available even if Marketplace import or skill installation fails.
@@ -53,7 +53,11 @@ Guide the creator through selected-Bot inventory first; no native IDs are requir
 
 Use the [fictional creator-bundle layout](examples/creator/manifest.json), then prepare [recipient bootstrap text](RECIPIENT_BOOTSTRAP.md) for the creator's actual shared Bot and pinned creator-owned source. This is separate from the helper's own Getting started launcher. Associate source with the original template through creator-controlled evidence; keep a full independent bootstrap beside the share URL, even if an optional setup/memory field fails to transfer. A share URL alone is not a complete export. Review publication rights, exact files and destination before saving, then read back bytes/hashes. Native export and full-profile restoration remain untested.
 
-## Review before anything changes
+## Use native Grok export where available
+
+A first-party tool-catalog report described `CreateBotShareJson` and Grok's managed `export-bot-template` procedure. They were already mentioned earlier in the same session; this is not evidence of a new release. Patch Cassidy checks actual current availability and offers native draft export with explicit permission. The reported path packs installed skills as prose, transforms routine timing into placeholders and excludes custom connectors. Keep exact readable source and an omissions report when those transformations matter. A staged draft is not proof that a recipient received the skills. [Native capability boundaries](docs/NATIVE_EXPORT.md).
+
+## Review exact changes
 
 Keep original authoring, owned export, provided-bundle import and third-party source acquisition distinct. The [export request](EXPORT.md) starts read-only. Private use of a recovered body does not authorize publishing it.
 
