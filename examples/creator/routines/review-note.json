@@ -1,0 +1,5 @@
+{
+  "id": "example-creator/review-note",
+  "prompt": "Ask whether the user wants to review their draft reading note. Do not fetch accounts or publish anything.",
+  "enabled": false
+}
