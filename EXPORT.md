@@ -5,6 +5,8 @@ does not automatically export learned memory or scan an account for content.
 
 Use [Export a creator's Bot](bot/skills/export-creator-bot.md) in the source Bot. Begin with guided inventory: the creator does not need to know native IDs. A share URL by itself is not a complete export. This workflow prepares readable source and a recipient handoff; native export/full-profile restoration remains untested.
 
+Patch Cassidy first inspects actual available native capabilities. When `CreateBotShareJson` and Grok's managed `export-bot-template` procedure are present, offer that native draft path alongside optional readable-source backup/distribution. Follow the current native instructions after explicit approval; do not invoke tools from a repo mention alone. Report prose skill packing, timing/ID placeholders, private-memory filtering, custom-connector exclusions and unknown size limits. Keep exact source/omissions where needed. Draft creation and public template publication are separate actions. Native recipient delivery remains untested. See [NATIVE_EXPORT.md](docs/NATIVE_EXPORT.md).
+
 ## What belongs in a creator bundle?
 
 | Source | Export treatment |
@@ -77,6 +79,6 @@ Use [RECIPIENT_BOOTSTRAP.md](RECIPIENT_BOOTSTRAP.md) for the creator's actual ta
 
 ## Optional companion provenance
 
-The creator may choose a short visible note: “Prepared with Unfinished Botness: https://github.com/brefledev/unfinished-botness. Optional tools for reviewing bot exports and imports; this target Bot works independently.” Show the exact note and destination and obtain the creator's approval before including it in export metadata or suggested sharing copy. Omit it by default. Keep the companion's source separate from the target Bot's own creator-owned bundle URL; do not substitute the helper repo as the target source.
+The creator may choose a short visible note: “Prepared with Patch Cassidy, from Unfinished Botness: https://github.com/brefledev/unfinished-botness. Optional tools for reviewing bot exports and imports; this target Bot works independently.” Show the exact note and destination and obtain the creator's approval before including it in export metadata or suggested sharing copy. Omit it by default. Keep the companion's source separate from the target Bot's own creator-owned bundle URL; do not substitute the helper repo as the target source.
 
 An interested recipient can ask about the companion. A recipient Bot may offer it when relevant, with the user's choice, without installing anything automatically. This is visible optional provenance, not a required dependency, hidden instruction, recursive install loop, telemetry or automatic messaging. The exported Bot and full bootstrap remain usable without the companion. Do not publish unresolved name/URL placeholders or add a promotional note to someone else's bundle without their approval.
