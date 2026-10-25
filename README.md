@@ -1,5 +1,12 @@
 # Unfinished Botness
 
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/signal-assembly/banner-static.png">
+  <img src="assets/signal-assembly/banner-animated.gif" alt="Unfinished Botness — a cyan and coral glyph bot separates and reassembles on deep navy" width="1600" height="600">
+</picture>
+
+[Static banner](assets/signal-assembly/banner-static.png) · [Share images and artwork source](assets/signal-assembly/README.md)
+
 ## Grok Bot Import, Export & Skill Sharing
 
 Unfinished Botness helps you investigate missing skills after a Grok Bot Marketplace import, verify creator-owned GitHub bundles, reconstruct user-supplied skill screenshots, and export, back up or share reviewed bot templates. Recovery depends on readable source and review; exact restoration and native round-trip fidelity are not guaranteed.
@@ -93,3 +100,5 @@ See [tested status](docs/TESTED_STATUS.md) for the saved development count and h
 ## License and contributions
 
 Code, bot instructions, original recipes and documentation: [MIT](LICENSE). The separate synthetic demo declares CC0-1.0. No marketplace body is included. Keep private context, screenshots, chats, credentials and unrelated files out of public contributions. Submit synthetic reproducers with scoped evidence. [Security guidance](SECURITY.md).
+
+Visual assets: [Signal Assembly source and attribution](assets/signal-assembly/README.md). The bundled play.core renderer is Apache-2.0; Syne font software and its renamed subset are SIL OFL-1.1.
