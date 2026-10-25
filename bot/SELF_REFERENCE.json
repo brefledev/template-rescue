@@ -1,8 +1,8 @@
 {
-  "repositoryUrl": "https://github.com/brefledev/template-rescue",
+  "repositoryUrl": "https://github.com/brefledev/unfinished-botness",
   "publicationStatus": "published",
   "publishedCommit": null,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "instructionsPath": "bot/INSTRUCTIONS.md",
   "manifestPath": "bot/manifest.json",
   "routinePolicyPath": "bot/ROUTINE_POLICY.md",
