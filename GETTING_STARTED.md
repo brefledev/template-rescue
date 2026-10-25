@@ -1,11 +1,17 @@
-# Create Template Rescue from source
+# Create Unfinished Botness from source
 
-Use the exact canonical repository recorded in `bot/SELF_REFERENCE.json`. Its canonical URL is `https://github.com/brefledev/template-rescue`; verify that its owner/public visibility and complete source match the self-reference record. Use only a published source state, then resolve a reviewed release/install URL to a full immutable commit. Do not rely on a mutable branch as an installed baseline.
+## Can another Bot create this helper for me?
+
+Give it the reviewed source URL and ask it to inspect the instructions and report its actual Bot-creation, skill-write, readback and file-fetch capabilities first. A tool for sharing a Bot or writing a skill does not prove it can create a separate Bot. It can prepare source and setup text where readable; if no native Bot-creation tool is available, create a fresh Bot in the app and paste the reviewed instructions yourself. Native creation and round-trip fidelity have not been tested by this kit. A capability question is not permission to create anything; approve exact account changes separately.
+
+## Independent setup launcher
+
+Use the exact canonical repository recorded in `bot/SELF_REFERENCE.json`. Its canonical URL is `https://github.com/brefledev/unfinished-botness`; verify that its owner/public visibility and complete source match the self-reference record. Use only a published source state, then resolve a reviewed release/install URL to a full immutable commit. Do not rely on a mutable branch as an installed baseline.
 
 Create a fresh Grok Bot and paste the complete `bot/INSTRUCTIONS.md`, or paste this independent launcher with the actual reviewed immutable URL. It does not depend on imported skills, a saved memory or an automatic Getting started trigger.
 
 ```text
-I want to create Template Rescue from <REVIEWED IMMUTABLE COMMIT URL>.
+I want to create Unfinished Botness from <REVIEWED IMMUTABLE COMMIT URL>.
 First verify that the repository exists, is the intended canonical source and
 matches bot/SELF_REFERENCE.json. If publication is pending or full source is
 unreadable, report that blocker; do not invent verification or source text.
