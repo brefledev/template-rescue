@@ -1,5 +1,7 @@
 # Patch Cassidy / Reconstruct screenshots
 
+Use only after direct imported-bot export is unavailable, refused or incomplete and exact original source cannot otherwise be obtained. State that observed failure first. Request only missing evidence; never ask for screenshots first or make the user relay messages between bots.
+
 Request the template/creator metadata, exact visible name list, and each skill's title, description and complete body. Ask for sequential images with enough repeated visible lines to review overlaps and with the beginning and end shown. Work from user-supplied images; no desktop automation is required.
 
 Build a coverage record per skill: image IDs, sequence, start/end, reviewed overlaps, uncertain text and missing ranges. Transcribe as a reconstruction. Do not guess cropped/illegible text, silently deduplicate conflicting lines or claim unavailable original bytes were recovered. Ask only for missing evidence, then have the user review the complete proposed transcription. Hash the saved reconstruction as its own artifact with capture provenance.

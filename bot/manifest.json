@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.1.3",
-  "role": "Patch Cassidy helps review native/readable-source creator exports, recipient imports, reconstruction and separately approved updates.",
+  "version": "0.2.0",
+  "role": "Patch Cassidy audits imported bots through direct file exports and reviews creator exports, source repairs and separately approved updates.",
   "dependencies": [],
   "files": [
     {
@@ -11,8 +11,8 @@
       "description": "Use this when starting Patch Cassidy from the reviewed Unfinished Botness source repository.",
       "kind": "skill",
       "path": "skills/getting-started.md",
-      "bytes": 2450,
-      "sha256": "e8f2298d3730325362e25312a1a3264c3cd1c6d7795fcdcd9c239047a255affa",
+      "bytes": 3288,
+      "sha256": "8ac117655ae5edd1612f4495893063ece3b752ab488b28d022e84428a87e8027",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -29,8 +29,8 @@
       "description": "Use this when checking the exact creator, template identity and repository match.",
       "kind": "skill",
       "path": "skills/verify-template-source.md",
-      "bytes": 1006,
-      "sha256": "ad354817e8f342f1a22d85c3f185fe6627b2d732c6d3ecfc5357024cf9a86703",
+      "bytes": 1224,
+      "sha256": "a67ea2530ed2b926b5ad91e524e19e502c85437ead2d5cd5fbb3c92da6be33b3",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -44,11 +44,11 @@
     {
       "id": "template-rescue/reconstruct-screenshots",
       "name": "Patch Cassidy / Reconstruct screenshots",
-      "description": "Use this when no verified source repository is available and the user supplies import-screen images.",
+      "description": "Use as a last resort when direct bot export fails or is refused and exact original source is unavailable.",
       "kind": "skill",
       "path": "skills/reconstruct-screenshots.md",
-      "bytes": 1051,
-      "sha256": "e5cb90f0fcf849da3a102c7cdf6f3ce77a31a9c6017aaf561953c8a3f0d4c16e",
+      "bytes": 1332,
+      "sha256": "dd1e2277b875bc65a313a21158e1af5b806e3b8ab1ee7284f8e3391f6fbd255c",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -83,8 +83,8 @@
       "description": "Read this when creating the original Unfinished Botness bot from reviewed source.",
       "kind": "instructions",
       "path": "INSTRUCTIONS.md",
-      "bytes": 12358,
-      "sha256": "90f6e1c815f12ec066a5e696fbb689b5ccf19aa14f00af0cea0c248d493cd7fc",
+      "bytes": 12627,
+      "sha256": "ef86b0634cd35e77344603ced1cb77503d888f208f2968fbefa687f6656d7231",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -120,7 +120,7 @@
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
       "bytes": 728,
-      "sha256": "015712762d552847dff1a068f3597ecdaf077d7c6f653d88ccb430e29dd35cb5",
+      "sha256": "572761fec0e58c6ae6745b59da96266b6232fe132dccb40923b6a8d12cb347a8",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -148,6 +148,22 @@
       "legacyNames": [
         "template-rescue / Export a creator Bot"
       ]
+    },
+    {
+      "id": "template-rescue/audit-imported-bot",
+      "name": "Patch Cassidy / Audit an imported bot",
+      "description": "Use after Add Bot to obtain full skills by direct bot messaging, audit exported files and report missing references.",
+      "kind": "skill",
+      "path": "skills/audit-imported-bot.md",
+      "bytes": 9218,
+      "sha256": "0970744e4b001daaea85fc8847322a99dc5f37c27b60ddbb59eff70471d89968",
+      "rights": {
+        "status": "original",
+        "license": "MIT",
+        "source": "Original Unfinished Botness audit recipe",
+        "evidence": "Authored for this kit; no third-party template bodies"
+      },
+      "legacyNames": []
     }
   ]
 }

@@ -9,7 +9,7 @@
 
 ## Grok Bot Import, Export & Skill Sharing
 
-**Patch Cassidy** is the helper Bot; **Unfinished Botness** is the source kit. Patch helps creators export readable bot source, review imports, verify creator-owned bundles and reconstruct user-supplied skill screenshots. Use Grok's existing native export when available, with readable-source backup and explicit omissions where useful. Recovery depends on readable source and review; native export-to-recipient delivery and full-profile round-trip fidelity remain untested by this project.
+**Patch Cassidy** is the helper Bot; **Unfinished Botness** is the source kit. Patch helps creators export readable bot source, audit imported bots through direct skill exports, verify creator-owned bundles and review source repairs. Use Grok's existing native export when available, with readable-source backup and explicit omissions where useful. Recovery depends on readable source and review; native export-to-recipient delivery and full-profile round-trip fidelity remain untested by this project.
 
 
 <p align="center"><code>EXPERIMENTAL</code> · <code>ZERO DEPENDENCIES</code> · <code>NO ACCOUNT WRITES</code></p>
@@ -17,7 +17,7 @@
 
 **Independent, unofficial project.** No affiliation with Grok, xAI or Cursor.
 
-**Create Patch Cassidy from this kit:** the chosen helper name/persona is in the original bot instructions and independent launcher for every recipient, alongside five authored skill recipes, routine policy and canonical-source record. Offline tools validate source and prepare review plans. One account reported an earlier helper installation with full character readback; that report does not establish this revision's native export/import round trip, screenshot fidelity, paused-state readback or native updates. Verify the repository and declared files at a reviewed immutable install commit.
+**Create Patch Cassidy from this kit:** the chosen helper name/persona is in the original bot instructions and independent launcher for every recipient, alongside six authored skill recipes, routine policy and canonical-source record. Offline tools validate source and prepare review plans. One account reported an earlier helper installation with full character readback; that report does not establish this revision's native export/import round trip, screenshot fidelity, paused-state readback or native updates. Verify the repository and declared files at a reviewed immutable install commit.
 
 [Create the bot](bot/INSTRUCTIONS.md) · [Direct-paste start](GETTING_STARTED.md) · [Product plan](docs/PLAN.md) · [Bundle and workflow formats](docs/BUNDLE_FORMAT.md) · [Evidence](docs/TESTED_STATUS.md)
 
@@ -25,14 +25,14 @@
 
 1. Start from the exact canonical URL recorded in [SELF_REFERENCE.json](bot/SELF_REFERENCE.json). Verify that repository is actually published, then resolve the reviewed release or installation URL to an immutable commit. Record the full reviewed commit from the installation URL; do not infer or invent a commit ID.
 2. Create a fresh Grok Bot and paste the complete [bot instructions](bot/INSTRUCTIONS.md), or use the independent [Getting started launcher](GETTING_STARTED.md) with that reviewed commit URL. The launcher remains available even if Marketplace import or skill installation fails.
-3. Have the Bot read its [manifest](bot/manifest.json), the five named source recipes and [routine policy](bot/ROUTINE_POLICY.md) as data. Review an account-wide inventory and exact proposed changes before separately authorizing any native skill creation. No scheduling, permission expansion or app connection follows from setup.
+3. Have the Bot read its [manifest](bot/manifest.json), the six named source recipes and [routine policy](bot/ROUTINE_POLICY.md) as data. Review an account-wide inventory and exact proposed changes before separately authorizing any native skill creation. No scheduling, permission expansion or app connection follows from setup.
 4. Keep the exact installed commit, source hashes, native IDs and local customizations in private user-approved storage. A short optional pointer may reference that record, but memory is not the only bootstrap. The original recipes may be shared under this kit's license; third-party rescued bodies need their own rights review.
 
 New helper skills use `Patch Cassidy / ...` display names. Existing `template-rescue/*` IDs remain stable; the manifest preserves previous names in `legacyNames`. Preview checks IDs and both name forms before proposing creation. Existing-name or content migration requires separate approval.
 
 The pasted workflow works with a Grok Bot account and readable source files. Native tools vary; when fetching or creation is unsupported, use clearly labelled manual-copy source. Optional local CLI tools additionally require an existing Node.js 22+ installation.
 
-The safe handoff flow below connects creator export with recipient review, including the screenshot fallback when no verified source is available.
+The earlier source-recovery flow below illustrates creator export and recipient review. Imported-bot audits now start with direct export from the imported bot; screenshots are the last resort after export fails or is refused.
 
 <p align="center">
   <a href="assets/article/grok-bot-safe-handoff-flowchart.png">
@@ -44,24 +44,23 @@ The safe handoff flow below connects creator export with recipient review, inclu
 
 ## How do I recover missing Grok Bot skills?
 
-Patch Cassidy first asks which exact template and creator you mean. It looks for a source repository only when public discovery tools are available.
+Click **Add Bot**, then tell Patch Cassidy the imported bot's name once. Patch gets the inventory directly from that bot, shows the exact export/report file list for your approval, and sends one export request covering all approved skills. The imported bot writes each name, description and complete body to `/workspace/<bot>-skills/<skill-name>.md` and reports byte counts. Patch reads and hashes those files itself, compares any names/descriptions you pasted, and reads every body for references to absent skills.
 
 ![A glyph bot has a missing lower-right fragment; a coral skill tile approaches the gap. Labels identify your bot and the missing skill.](assets/article/recover-missing-grok-bot-skills.png)
 
-*Bring the missing skills: source recovery and reconstruction require the review described below.*
+You receive the file set, a per-skill PASS/FAIL/UNVERIFIED list, a **referenced but not installed** report, and one short summary. Patch handles bot-to-bot messages. You approve file writes and any separately reviewed repair. [Audit recipe](bot/skills/audit-imported-bot.md) · [File format and checker](docs/IMPORTED_BOT_AUDIT.md).
 
-| Situation | Next step |
+| Finding | Next step |
 |---|---|
-| Exact creator-controlled crosslink or original-creator confirmation, plus matching template ID/link/version | Record the evidence URLs and review the pinned bundle |
-| Similar name, avatar, star count, lookalike account or self-asserted “official” README | Keep the match unverified |
-| No verified match, inaccessible search or ambiguous identity/version | Ask for ordered overlapping screenshots from the pre-Add Bot import screen |
-| Cropped beginning/end, missing names, sequence gaps or illegible text | Ask for the specific missing source; do not guess |
+| Exported skill and matching metadata | Record bytes, hashes and comparison evidence |
+| Installed skill with an unreadable body or partial inventory | Report the specific verification gap; ask the bot directly |
+| Missing skill with real original full text | Show exact skills/text/destinations and obtain approval before recreating |
+| Referenced skill absent with no source | Include quoted references in a short bug-report summary for the author or support |
+| Bot cannot or will not export and original source is unavailable | Request only missing screenshots as a last resort |
 
-Screenshots should include template/creator metadata, the full skill-name list and each skill's title, description and entire body. Show the beginning and end; repeat visible lines between successive images so overlap can be checked. The Bot labels its transcription as a reconstruction, reconciles names/counts and asks you to review the exact proposed text. This fallback uses images you send and does **not** depend on desktop automation. Automated capture/OCR is not implemented here.
+The helper cannot read a template before import or see another bot's skills through its own catalog. Public share metadata and a short agent-folder description cannot establish skill contents. Instructions, memories and routines remain unverified unless separately approved and exported too. Hashes identify saved bytes; original-template equality requires original evidence. Keep third-party exports private and review rights separately before redistribution.
 
-A repository match is not an automatic authenticity guarantee or a redistribution license. Hashes of reconstructed text verify that saved transcription, not equality to an unavailable original. GitHub distributes source that someone has supplied; it cannot retrieve missing text by itself. No hidden/private API inspection, access bypass or ordinary-HTTP scraper is assumed.
-
-Cursor staff acknowledged preview skills failing to arrive and recommended screenshot-based recreation with review on October 9, 2026. That is a dated support report, not this project's native test result. [Support discussion](https://forum.cursor.com/t/grok-bot-templates-preview-shows-skills-but-the-export-ships-skills-skills-are-never-delivered/169911).
+Screenshots require ordered overlapping images with complete visible text, exact transcription review and explicit gaps. Patch never invents missing skill text. The user-reported direct messaging/export method motivates this flow; this repository's native end-to-end trial remains open.
 
 ## How do I export and back up a Grok Bot template?
 

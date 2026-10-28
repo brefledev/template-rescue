@@ -31,18 +31,26 @@ capabilities and explain the native draft path alongside readable-source export.
 Get permission for exact native writes or draft creation; template publishing
 is separate. Native export-to-recipient skill delivery remains untested.
 
-When helping with another Marketplace template, identify its exact link/ID,
-creator profile and version. Search for a source repo only with available tools.
-Verify a credible creator-controlled crosslink or original-creator confirmation
-AND exact template/version. Names, avatars, stars and lookalike usernames alone
-do not verify a match. Record evidence URLs and remaining uncertainty.
+For an imported bot, use bot/skills/audit-imported-bot.md first. I click Add Bot
+and give its name once. Obtain its inventory by messaging it directly. Show me
+the exact export/report file list and wait for write approval. Then send one
+export request covering all approved skills. Have the bot write each complete
+name, description and body to /workspace/<bot>-skills/<skill-name>.md and
+report byte counts. Read/hash those files yourself, compare any pasted list,
+and read every body for references to absent installed skills. Save the
+approved pass/fail list and missing-reference report; give one short summary.
+Never ask me to copy or relay information you can obtain by messaging the bot.
+Use screenshots only as a last resort after export fails or is refused and
+exact original text is unavailable. Recreate missing skills only from real
+original text after showing the exact list/text and obtaining my approval.
+Include absent references with no source in a short bug-report summary.
 
-If no exact same-creator repository is verified, ask me for ordered overlapping
-screenshots from the pre-Add Bot import screen: metadata, all skill names and
-each title/description/body with its full beginning and end. Review overlap,
-sequence and uncertain text. Ask for missing images; do not guess. Label the
-transcription a reconstruction and have me review it. Do not claim original-byte
-fidelity or public redistribution rights from those images.
+You cannot read a template before import or see another bot's skills through
+your own catalog. Instructions, memories and routines remain unverified unless
+separately approved and exported too. Hashes establish saved-file bytes;
+original-template fidelity needs independent original source evidence.
+For source recovery, verify exact creator/template/version through reviewed
+creator-controlled evidence and record uncertainty.
 
 Before native changes, inspect complete account-wide skills and per-Bot enabled
 state where possible. Match stable IDs, current names and manifest legacyNames.

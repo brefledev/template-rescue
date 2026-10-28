@@ -20,7 +20,7 @@ This is a project-defined portability format, not the native Grok configuration 
 
 Routine JSON is exactly `{ "id": "namespace/item", "prompt": "text", "enabled": false }`. It has no schedule, action hook or activation field. Skill text is framework source data; a native Grok format is not assumed.
 
-Instructions, policies and JSON references are source-only review documents, not native skill/routine creation proposals. The original `bot/` bundle checksums all eight declared files: five recipes plus core instructions, routine policy and self-reference metadata. The manifest itself is the external integrity reference and must come from a reviewed immutable commit; its hashes do not authenticate it.
+Instructions, policies and JSON references are source-only review documents, not native skill/routine creation proposals. The original `bot/` bundle checksums all nine declared files: six recipes plus core instructions, routine policy and self-reference metadata. The manifest itself is the external integrity reference and must come from a reviewed immutable commit; its hashes do not authenticate it.
 
 The inventory JSON is:
 
@@ -75,7 +75,7 @@ Both original bot recipes and synthetic examples carry authored one-line descrip
 
 ## Acquisition review inputs
 
-`match-preview` takes three JSON files. The request is `{templateId, templateUrl, creatorProfileUrl, version}`. The candidate is `{repositoryUrl, templateId, templateUrl, version}`; it may be `null`. The third file is an array of independently reviewed evidence records: `{kind, url, creatorProfileUrl, repositoryUrl, templateId, templateUrl, version, reviewedByOperator:true}`. Kind is `creator-controlled-crosslink` or `original-creator-confirmation`. Unknown version, mismatched identity or absent reviewed evidence requests screenshots. The review flag must reflect actual independent review; an imported repository cannot approve its own evidence. This tool checks declared consistency, not remote identity or truth.
+`match-preview` takes three JSON files. The request is `{templateId, templateUrl, creatorProfileUrl, version}`. The candidate is `{repositoryUrl, templateId, templateUrl, version}`; it may be `null`. The third file is an array of independently reviewed evidence records: `{kind, url, creatorProfileUrl, repositoryUrl, templateId, templateUrl, version, reviewedByOperator:true}`. Kind is `creator-controlled-crosslink` or `original-creator-confirmation`. Unknown version, mismatched identity or absent reviewed evidence routes to an imported-bot audit after Add Bot; screenshots remain the last resort after direct export fails or is refused and original source is unavailable. The review flag must reflect actual independent review; an imported repository cannot approve its own evidence. This tool checks declared consistency, not remote identity or truth.
 
 `capture-preview` takes an array of exact expected names and an array of `{skillName, sequence, sourceImageId, startsAtBeginning, endsAtEnd, overlapReviewed, uncertainText}`. Sequence starts at 1 for each skill. All starts/ends and overlaps must be reviewed, uncertainty false, and every expected name covered before the result permits human content review. It still does not claim original-byte fidelity or installation. Image transcription is a separate user-reviewed activity.
 

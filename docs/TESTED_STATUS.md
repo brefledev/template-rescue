@@ -2,6 +2,10 @@
 
 This matrix describes intended acceptance scope. Run `node --test test/*.test.mjs` at the exact source revision to observe local results. No badge or statement here claims hosted CI or a native Grok test.
 
+Local 0.2.0 candidate, October 28, 2026: 93 tests passed with zero failures or skips on Node.js 24.22.1 / Windows. The nine-file helper bundle (six skills), legacy demo and creator example validate. Twelve new tests exercise exported UTF-8 bytes and hashes, metadata comparison, missing skills/references, partial and unreadable exports, malformed bodies, unsafe paths, size limits and the read-only CLI. Startup routes use direct imported-bot export after exact file-write approval. Screenshots remain the last resort. Public commit and publication were authorized for this candidate on October 28, 2026. Resolve the installation URL to an immutable commit and verify its declared files.
+
+The local fixtures establish file-checker behavior. Direct bot messaging, native export completeness and the no-relay user flow require the [native acceptance run](IMPORTED_BOT_AUDIT.md#native-acceptance-run--open). The reference scanner reports explicit-pattern candidates; Patch must also read every full body. Original template source, native state and non-exported instructions/memories/routines retain explicit verification limits.
+
 | Surface | Evidence available | Boundary |
 |---|---|---|
 | Exact manifest files, hashes, UTF-8 and limits | Local synthetic tests | Checks integrity, not author trust |
@@ -16,6 +20,7 @@ This matrix describes intended acceptance scope. Run `node --test test/*.test.mj
 | Initial native helper creation | One account reported five installed skills plus a Bot profile with character readback of an earlier revision | Secondary report; not independently reproduced or a final-revision export/import test |
 | Native export and recipient import | CreateBotShareJson/export-bot-template capability report; neither invoked for that report | Exported-template skill delivery and full-profile round trip untested |
 | Manual copy into Grok | Launcher and fallback provided | Actual acceptance and exact round trip unverified |
+| Imported-bot file audit | Synthetic files, byte/body hashes, metadata checks, missing references, partial/unreadable exports and read-only CLI tests | Direct messaging and shared-file export remain untested in a native bot session |
 | Restore after partial failure | Design documented | No native writes or rollback implementation |
 | Public source publication | Verify exact files at the reviewed commit | Repository existence alone does not prove source completeness |
 

@@ -15,7 +15,7 @@ const foldName = value => value.normalize('NFKC').trim().toLowerCase();
 const displayName = value => text(value, 160) && foldName(value).length > 0 && !/[\p{Cc}\p{Zl}\p{Zp}]/u.test(value);
 const version = value => typeof value === 'string' && /^\d+\.\d+\.\d+$/.test(value);
 const stable = value => Array.isArray(value) ? value.map(stable) : object(value) ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
-function read(file, limit) {
+export function read(file, limit) {
   const stat = fs.lstatSync(file);
   if (!stat.isFile() || stat.isSymbolicLink() || stat.size > limit) fail('Unsafe file or size limit exceeded');
   const descriptor = fs.openSync(file, fs.constants.O_RDONLY | fs.constants.O_NONBLOCK);

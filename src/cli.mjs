@@ -1,12 +1,14 @@
 import {validateBundle, readJson, preview} from './bundle.mjs';
 import {assessRepositoryMatch, assessScreenshotCoverage} from './acquisition.mjs';
 import {planUpdate} from './updates.mjs';
+import {auditImportedBot} from './import-audit.mjs';
 
 try {
   const [command, root, inventory, revision, ...extra] = process.argv.slice(2);
-  if (extra.length || !root || !['validate', 'preview', 'match-preview', 'capture-preview', 'update-preview'].includes(command) || command === 'validate' && (inventory || revision) || ['preview','match-preview','update-preview'].includes(command) && (!inventory || !revision) || command === 'capture-preview' && (!inventory || revision)) throw new Error('Usage: validate BUNDLE | preview BUNDLE INVENTORY COMMIT | match-preview REQUEST CANDIDATE REVIEWED_EVIDENCE | capture-preview NAMES CAPTURES | update-preview BASELINE LOCAL_FILES CANDIDATE');
+  if (extra.length || !root || !['validate', 'preview', 'match-preview', 'capture-preview', 'update-preview', 'audit-import'].includes(command) || command === 'validate' && (inventory || revision) || ['preview','match-preview','update-preview'].includes(command) && (!inventory || !revision) || command === 'capture-preview' && (!inventory || revision) || command === 'audit-import' && revision) throw new Error('Usage: validate BUNDLE | preview BUNDLE INVENTORY COMMIT | match-preview REQUEST CANDIDATE REVIEWED_EVIDENCE | capture-preview NAMES CAPTURES | update-preview BASELINE LOCAL_FILES CANDIDATE | audit-import EXPORT_DIRECTORY [EXPECTED_LIST]');
   let result;
-  if (command === 'match-preview') result = assessRepositoryMatch(readJson(root), readJson(inventory), readJson(revision));
+  if (command === 'audit-import') result = auditImportedBot(root, inventory ? readJson(inventory) : null);
+  else if (command === 'match-preview') result = assessRepositoryMatch(readJson(root), readJson(inventory), readJson(revision));
   else if (command === 'capture-preview') result = assessScreenshotCoverage(readJson(root), readJson(inventory));
   else if (command === 'update-preview') result = planUpdate(readJson(root), readJson(inventory), readJson(revision));
   else {

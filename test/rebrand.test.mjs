@@ -26,18 +26,19 @@ function manifestFixture(t, mutate) {
   return dir;
 }
 
-test('helper display names change while all eight stable identities remain recognized', () => {
+test('helper display names change while the eight earlier stable identities remain recognized alongside the audit skill', () => {
   const bundle = validateBundle(root);
   assert.equal(bundle.manifest.namespace, 'template-rescue');
   assert.deepEqual(bundle.payloads.map(f => f.id), [
     'template-rescue/getting-started', 'template-rescue/verify-template-source',
     'template-rescue/reconstruct-screenshots', 'template-rescue/review-and-update',
     'template-rescue/bot-instructions', 'template-rescue/routine-policy',
-    'template-rescue/self-reference', 'template-rescue/export-creator-bot'
+    'template-rescue/self-reference', 'template-rescue/export-creator-bot',
+    'template-rescue/audit-imported-bot'
   ]);
   for (const file of bundle.payloads) {
     assert.ok(file.name.startsWith('Patch Cassidy / '));
-    assert.deepEqual(file.legacyNames, [file.name.replace('Patch Cassidy / ', 'template-rescue / ')]);
+    assert.deepEqual(file.legacyNames, file.id === 'template-rescue/audit-imported-bot' ? [] : [file.name.replace('Patch Cassidy / ', 'template-rescue / ')]);
     if (file.kind === 'skill') assert.ok(file.content.startsWith(`# ${file.name}\n`));
   }
   const reference = JSON.parse(bundle.payloads.find(f => f.kind === 'reference').content);
@@ -45,7 +46,7 @@ test('helper display names change while all eight stable identities remain recog
   assert.equal(reference.helperName, 'Patch Cassidy');
   const plan = preview(bundle, inventory([]), revision);
   assert.equal(plan.blocked, false);
-  assert.equal(plan.operations.filter(o => o.action === 'propose-create-only').length, 5);
+  assert.equal(plan.operations.filter(o => o.action === 'propose-create-only').length, 6);
   assert.ok(plan.operations.every(o => o.name.startsWith('Patch Cassidy / ')));
 });
 
@@ -74,7 +75,7 @@ test('display names are independent of stable namespaces while IDs remain namesp
 for (const enabled of [false, true]) {
   test(`legacy names with opaque native IDs block duplicate creation (enabled=${enabled})`, () => {
     const bundle = validateBundle(root);
-    const files = bundle.payloads.filter(f => f.kind === 'skill');
+    const files = bundle.payloads.filter(f => f.kind === 'skill' && f.legacyNames.length);
     const items = files.map((f, index) => native(f, {id: `native-${index}`, name: f.legacyNames[0], enabled}));
     const before = structuredClone(items);
     const plan = preview(bundle, inventory(items), revision);
@@ -139,7 +140,7 @@ test('partial installation proposes only genuinely absent helper skills', () => 
   const bundle = validateBundle(root), file = bundle.payloads[0];
   const plan = preview(bundle, inventory([native(file, {id: 'old-native', name: file.legacyNames[0]})]), revision);
   assert.equal(plan.operations[0].action, 'blocked-collision');
-  assert.equal(plan.operations.filter(o => o.action === 'propose-create-only').length, 4);
+  assert.equal(plan.operations.filter(o => o.action === 'propose-create-only').length, 5);
   assert.equal(plan.blocked, true);
 });
 
