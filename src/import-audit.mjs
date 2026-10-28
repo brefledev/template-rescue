@@ -12,9 +12,9 @@ export function skillReferences(body, installedNames = []) {
   const found = [];
   body.split(/\r?\n/).forEach((text, index) => {
     const patterns = [
-      /\b(?:load|use|invoke|run|require|requires)\s+(?:the\s+)?(?:skill\s+)?(?:`([^`]+)`|"([^"]+)"|'([^']+)'|([a-z][a-z0-9]*(?:[-/][a-z0-9]+)+))/gi,
-      /\[[^\]]+\]\((?:\.\/)?(?:skills\/)([a-z][a-z0-9-]*)\/(?:SKILL\.md)\)/gi,
-      /\[[^\]]+\]\((?:\.\/)?(?:skills\/)([a-z][a-z0-9-]*)\.md\)/gi
+      /\b(?:load|use|invoke|run|require|requires)\s+(?:the\s+)?(?:skill\s+)?(?:`([^`]+)`|"([^"]+)"|'([^']+)'|([a-z][a-z0-9]*(?:(?:[-/][a-z0-9]+)+(?:-\*)?|-\*)))/gi,
+      /\[[^\]]+\]\((?:\.\/)?(?:skills\/)([a-z][a-z0-9-]*(?:-\*)?)\/(?:SKILL\.md)\)/gi,
+      /\[[^\]]+\]\((?:\.\/)?(?:skills\/)([a-z][a-z0-9-]*(?:-\*)?)\.md\)/gi
     ];
     for (const pattern of patterns) for (const match of text.matchAll(pattern)) {
       const name = match.slice(1).find(Boolean).trim();
@@ -22,7 +22,7 @@ export function skillReferences(body, installedNames = []) {
     }
     // Tables, arrows and semicolon lists often name skills without an adjacent verb.
     // Prefer an explicit candidate over silence, including in examples and URLs.
-    for (const match of text.matchAll(/\b[a-z][a-z0-9]*(?:-[a-z0-9]+)+\b/g)) {
+    for (const match of text.matchAll(/\b[a-z][a-z0-9]*(?:(?:-[a-z0-9]+)+(?:-\*)?|-\*)/g)) {
       const name = match[0];
       if (prefixes.has(name.split('-')[0]) && !found.some(item => item.line === index + 1 && fold(item.name) === fold(name))) found.push({name, line: index + 1, text});
     }
@@ -164,7 +164,16 @@ export function auditImportedBot(root, expected = null) {
     } catch (error) { add('FAIL', skill.name, `Export unreadable: ${error.message}`); }
   }
   const installed = new Set(installedNames.map(fold));
-  const missingReferences = references.filter(ref => !installed.has(fold(ref.name))).map(ref => ({
+  const matchesInstalled = name => {
+    const reference = fold(name);
+    if (!reference.endsWith('-*')) return installed.has(reference);
+    const prefix = reference.slice(0, -1);
+    return installedNames.some(name => {
+      const candidate = fold(name);
+      return candidate.startsWith(prefix) && candidate.length > prefix.length;
+    });
+  };
+  const missingReferences = references.filter(ref => !matchesInstalled(ref.name)).map(ref => ({
     ...ref,
     status: inventory.complete ? 'referenced but not installed' : 'reference installation unverified',
     basis: `${inventory.inventorySource === 'derived-from-files' ? 'Inventory derived from exported files' : 'Bot-reported inventory'}; review the quoted body line before treating this candidate as a dependency`

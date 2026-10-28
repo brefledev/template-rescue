@@ -246,3 +246,34 @@ test('audit preserves a malformed existing inventory instead of rebuilding over 
   assert.throws(() => auditImportedBot(f.root));
   assert.equal(fs.readFileSync(inventoryPath, 'utf8'), '{bad JSON');
 });
+
+test('wildcard tokens stay whole in prose, commands, quotes and Markdown links', () => {
+  const body = 'Choose video-plan-*; load video-plan-*; use `video-plan-*`.\n[plans](skills/video-plan-*.md)\nUse video-*.';
+  const references = skillReferences(body, ['video-plan-produce']);
+  assert.deepEqual(references.map(ref => ref.name), ['video-plan-*', 'video-plan-*', 'video-*']);
+  assert.equal(references[0].text, body.split('\n')[0]);
+});
+
+test('Director wildcard references match installed plans while missing formats remain flagged', t => {
+  const body = 'Choose from video-plan-* for planning.\nUse `video-plan-*` as needed.\n' + directorLine + '\nshort drama → video-format-microdrama; product ad → video-format-ugc-ad';
+  const f = fixture(t, body);
+  for (const name of ['video-plan-produce', 'video-plan-questions', 'video-plan-script', 'video-format-music-video']) {
+    f.inventory.skills.push({name, description: 'Synthetic installed skill', path: null, bytes: null, error: 'Body outside this fixture'});
+  }
+  f.save();
+  const r = auditImportedBot(f.root);
+  assert.deepEqual(r.missingReferences.map(ref => ref.name).sort(), ['video-format-microdrama', 'video-format-movie', 'video-format-ugc-ad']);
+  assert.ok(r.missingReferences.every(ref => ref.status === 'referenced but not installed'));
+});
+
+test('unmatched wildcards and exact missing names stay unresolved; a prefix requires a real suffix', t => {
+  const f = fixture(t, 'Load video-plan-*. Use video-missing-*. Use video-plan.');
+  f.inventory.skills.push({name: 'video-planner', description: 'Similar prefix', path: null, bytes: null, error: 'Body outside fixture'});
+  f.save();
+  let r = auditImportedBot(f.root);
+  assert.deepEqual(r.missingReferences.map(ref => ref.name), ['video-plan-*', 'video-missing-*', 'video-plan']);
+  f.inventory.skills.push({name: 'video-plan-produce', description: 'Matching prefix', path: null, bytes: null, error: 'Body outside fixture'});
+  f.save();
+  r = auditImportedBot(f.root);
+  assert.deepEqual(r.missingReferences.map(ref => ref.name), ['video-missing-*', 'video-plan']);
+});

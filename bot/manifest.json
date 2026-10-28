@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "role": "Patch Cassidy audits imported bots through direct file exports and reviews creator exports, source repairs and separately approved updates.",
   "dependencies": [],
   "files": [
@@ -120,7 +120,7 @@
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
       "bytes": 728,
-      "sha256": "d2b08a98699bbc91a05b8a33e84c44049ac8985b36f5a3a4486d55b442605820",
+      "sha256": "d702e0cf90996ba33e96806c02b4b429b338a68aefcf83904278c0a3dac334d3",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -155,8 +155,8 @@
       "description": "Use after Add Bot to obtain full skills by direct bot messaging, audit exported files and report missing references.",
       "kind": "skill",
       "path": "skills/audit-imported-bot.md",
-      "bytes": 10200,
-      "sha256": "be762971ece597bfa5181c300d08dbc7a7d56bbba79129343f4e6f356294b217",
+      "bytes": 10536,
+      "sha256": "0c4444a41707f1e3f509e8b7cd3a45f4cf2f05b671c4507131804a47a9005b40",
       "rights": {
         "status": "original",
         "license": "MIT",
