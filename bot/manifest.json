@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "namespace": "template-rescue",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "role": "Patch Cassidy audits imported bots through direct file exports and reviews creator exports, source repairs and separately approved updates.",
   "dependencies": [],
   "files": [
@@ -11,8 +11,8 @@
       "description": "Use this when starting Patch Cassidy from the reviewed Unfinished Botness source repository.",
       "kind": "skill",
       "path": "skills/getting-started.md",
-      "bytes": 3288,
-      "sha256": "8ac117655ae5edd1612f4495893063ece3b752ab488b28d022e84428a87e8027",
+      "bytes": 3488,
+      "sha256": "c1da2db3a5485730466b033a811c4e14797944039b80720949cb155dc19905c9",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -83,8 +83,8 @@
       "description": "Read this when creating the original Unfinished Botness bot from reviewed source.",
       "kind": "instructions",
       "path": "INSTRUCTIONS.md",
-      "bytes": 12627,
-      "sha256": "ef86b0634cd35e77344603ced1cb77503d888f208f2968fbefa687f6656d7231",
+      "bytes": 12938,
+      "sha256": "1c417448d950d20c2fee300c940ba9efa9b0758e50d0f2c76f12413515bc9b2a",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -120,7 +120,7 @@
       "kind": "reference",
       "path": "SELF_REFERENCE.json",
       "bytes": 728,
-      "sha256": "572761fec0e58c6ae6745b59da96266b6232fe132dccb40923b6a8d12cb347a8",
+      "sha256": "d2b08a98699bbc91a05b8a33e84c44049ac8985b36f5a3a4486d55b442605820",
       "rights": {
         "status": "original",
         "license": "MIT",
@@ -155,8 +155,8 @@
       "description": "Use after Add Bot to obtain full skills by direct bot messaging, audit exported files and report missing references.",
       "kind": "skill",
       "path": "skills/audit-imported-bot.md",
-      "bytes": 9218,
-      "sha256": "0970744e4b001daaea85fc8847322a99dc5f37c27b60ddbb59eff70471d89968",
+      "bytes": 10200,
+      "sha256": "be762971ece597bfa5181c300d08dbc7a7d56bbba79129343f4e6f356294b217",
       "rights": {
         "status": "original",
         "license": "MIT",

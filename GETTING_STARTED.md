@@ -33,8 +33,10 @@ is separate. Native export-to-recipient skill delivery remains untested.
 
 For an imported bot, use bot/skills/audit-imported-bot.md first. I click Add Bot
 and give its name once. Obtain its inventory by messaging it directly. Show me
-the exact export/report file list and wait for write approval. Then send one
-export request covering all approved skills. Have the bot write each complete
+the local audit paths and proceed: "audit <bot>" authorizes writes under
+/workspace/<bot>-skills/ and its named audit reports. Send one export request
+covering every selected skill; local audit writes need no second approval.
+Have the bot write each complete
 name, description and body to /workspace/<bot>-skills/<skill-name>.md and
 report byte counts. Read/hash those files yourself, compare any pasted list,
 and read every body for references to absent installed skills. Save the
@@ -44,6 +46,11 @@ Use screenshots only as a last resort after export fails or is refused and
 exact original text is unavailable. Recreate missing skills only from real
 original text after showing the exact list/text and obtaining my approval.
 Include absent references with no source in a short bug-report summary.
+
+Accept JSON metadata or name:/description: frontmatter. Build inventory.json
+from exported files when absent. Flag same-prefix hyphenated skill tokens in
+all body text, including arrow/semicolon lists, as reference candidates.
+Every unresolved candidate fails for review. Native changes need separate yes.
 
 You cannot read a template before import or see another bot's skills through
 your own catalog. Instructions, memories and routines remain unverified unless

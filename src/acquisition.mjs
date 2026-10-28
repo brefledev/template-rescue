@@ -19,7 +19,7 @@ function identity(request) {
 export function assessRepositoryMatch(request, candidate, reviewedEvidence = []) {
   const source = identity(request);
   if (!Array.isArray(reviewedEvidence) || reviewedEvidence.length > 32) fail('Bounded independent evidence review required');
-  const fallback = reason => ({status: 'audit-imported-bot', reason, authenticityGuaranteed: false, accountWrites: false, instruction: 'After Add Bot, obtain the named bot inventory directly, review the exact file-write plan, then request its full skill export by direct messaging after approval. Audit shared files yourself. Screenshots are a last resort when export fails or is refused and original source is unavailable.'});
+  const fallback = reason => ({status: 'audit-imported-bot', reason, authenticityGuaranteed: false, accountWrites: false, instruction: 'After Add Bot, an explicit audit request authorizes the named local audit files. Obtain the named bot inventory directly, then request its full skill export by direct messaging. Native changes require separate approval. Audit shared files yourself. Screenshots are a last resort when export fails or is refused and original source is unavailable.'});
   if (!candidate || !source.version) return fallback(!candidate ? 'No repository candidate supplied' : 'Exact source version is unverified');
   const repo = repositoryUrl(candidate.repositoryUrl);
   if (candidate.templateId !== source.id || candidate.templateUrl !== source.url || candidate.version !== source.version) return fallback('Candidate does not establish the exact template identity and version');

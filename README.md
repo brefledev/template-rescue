@@ -44,11 +44,11 @@ The earlier source-recovery flow below illustrates creator export and recipient 
 
 ## How do I recover missing Grok Bot skills?
 
-Click **Add Bot**, then tell Patch Cassidy the imported bot's name once. Patch gets the inventory directly from that bot, shows the exact export/report file list for your approval, and sends one export request covering all approved skills. The imported bot writes each name, description and complete body to `/workspace/<bot>-skills/<skill-name>.md` and reports byte counts. Patch reads and hashes those files itself, compares any names/descriptions you pasted, and reads every body for references to absent skills.
+Click **Add Bot**, then tell Patch Cassidy the imported bot's name once. Patch gets the inventory directly from that bot, treats your "audit <bot>" request as authorization for local audit files, and sends one export request covering every selected skill. The imported bot writes each name, description and complete body to `/workspace/<bot>-skills/<skill-name>.md` and reports byte counts. Patch reads and hashes those files itself, compares any names/descriptions you pasted, and reads every body for references to absent skills.
 
 ![A glyph bot has a missing lower-right fragment; a coral skill tile approaches the gap. Labels identify your bot and the missing skill.](assets/article/recover-missing-grok-bot-skills.png)
 
-You receive the file set, a per-skill PASS/FAIL/UNVERIFIED list, a **referenced but not installed** report, and one short summary. Patch handles bot-to-bot messages. You approve file writes and any separately reviewed repair. [Audit recipe](bot/skills/audit-imported-bot.md) · [File format and checker](docs/IMPORTED_BOT_AUDIT.md).
+You receive the file set, a per-skill PASS/FAIL/UNVERIFIED list, a missing-reference report, and one short summary. The checker accepts JSON or ordinary name/description frontmatter and creates `inventory.json` when absent. It flags same-prefix skill tokens anywhere in bodies, including arrow and semicolon lists; unresolved candidates fail for review. File-derived inventories retain unverified native completeness. Patch handles bot-to-bot messages. Your audit request covers files under `/workspace/<bot>-skills/` and the named audit reports. Native repairs require separate approval. [Audit recipe](bot/skills/audit-imported-bot.md) · [File format and checker](docs/IMPORTED_BOT_AUDIT.md).
 
 | Finding | Next step |
 |---|---|

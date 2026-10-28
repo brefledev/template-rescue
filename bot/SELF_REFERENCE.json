@@ -2,7 +2,7 @@
   "repositoryUrl": "https://github.com/brefledev/unfinished-botness",
   "publicationStatus": "published",
   "publishedCommit": null,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "instructionsPath": "bot/INSTRUCTIONS.md",
   "manifestPath": "bot/manifest.json",
   "routinePolicyPath": "bot/ROUTINE_POLICY.md",
